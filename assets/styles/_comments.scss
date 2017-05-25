@@ -1,0 +1,93 @@
+/**
+ * Comments Template
+ * --------------------------------------------------------------------------- */
+
+#comments-template {}
+
+/* ====== COMMENTS ======= */
+
+#comments {}
+
+#comments-number {}
+
+/* === Comments closed message === */
+
+.comments-closed {}
+
+.comments-closed.pings-open {}
+
+/* === Comment list === */
+
+ol.comment-list {}
+
+ol.comment-list ol.children {}
+
+/* === Individual comments */
+
+li.comment {}
+
+li.ping {}
+
+li.bypostauthor {}
+
+/* === Avatars === */
+
+.comment-list .avatar {}
+
+/* === Meta === */
+
+.comment-meta {}
+
+.comment-author {}
+
+.comment-author cite {}
+
+.comment-meta .published {}
+
+/* === Comment text/content === */
+
+.comment-content {}
+
+/* === Reply link === */
+
+.comment-reply-link {}
+.comment-reply-link:hover {}
+
+/* === Comments pagination === */
+
+.comments-nav {}
+
+.comments-nav a {}
+.comments-nav a:hover {}
+
+.comments-nav .page-numbers {}
+
+/* ====== RESPOND (COMMENT FORM) ====== */
+
+#respond {}
+
+#reply-title {}
+
+#reply-title small {}
+
+#respond .log-in-out {}
+
+#respond label {}
+
+#respond label .required {}
+
+#respond input[type="text"] {}
+#respond input[type="text"]:focus {}
+
+#respond input[type="url"] {}
+#respond input[type="url"]:focus {}
+
+#respond input[type="email"] {}
+#respond input[type="email"]:focus {}
+
+#respond input[type="submit"] {}
+#respond input[type="submit"]:focus {}
+#respond input[type="submit"]:hover {}
+
+#respond textarea {}
+#respond textarea:focus {}
