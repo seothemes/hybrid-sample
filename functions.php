@@ -33,10 +33,10 @@
 $hybrid_base_dir = trailingslashit( get_template_directory() );
 
 // Load the Hybrid Core framework and theme files.
-require_once( $hybrid_base_dir . 'library/hybrid.php'        );
-require_once( $hybrid_base_dir . 'inc/custom-background.php' );
-require_once( $hybrid_base_dir . 'inc/custom-header.php'     );
-require_once( $hybrid_base_dir . 'inc/theme.php'             );
+require_once( $hybrid_base_dir . 'library/hybrid.php'        	  );
+require_once( $hybrid_base_dir . 'includes/custom-background.php' );
+require_once( $hybrid_base_dir . 'includes/custom-header.php'     );
+require_once( $hybrid_base_dir . 'includes/theme.php'             );
 
 // Launch the Hybrid Core framework.
 new Hybrid();
@@ -55,7 +55,9 @@ add_action( 'after_setup_theme', 'hybrid_base_theme_setup', 5 );
 function hybrid_base_theme_setup() {
 
 	// Theme layouts.
-	add_theme_support( 'theme-layouts', array( 'default' => is_rtl() ? '2c-r' :'2c-l' ) );
+	add_theme_support( 'theme-layouts', array(
+		'default' => is_rtl() ? '2c-r' : '2c-l',
+	) );
 
 	// Enable custom template hierarchy.
 	add_theme_support( 'hybrid-core-template-hierarchy' );
@@ -80,4 +82,14 @@ function hybrid_base_theme_setup() {
 
 	// Handle content width for embeds and images.
 	hybrid_set_content_width( 1280 );
+
+	/**
+	 * Load WordPress and Hybrid Core optimizations only if theme support
+	 * is declared. This is not recommended for commercial themes and is
+	 * only intended for use on personal projects to increase performance.
+	 *
+	 * To enable optimizations uncomment the following line:
+	 * add_theme_support( 'optimize' );
+	 */
+	require_if_theme_supports( 'optimize', get_template_directory() . '/includes/optimize.php' );
 }

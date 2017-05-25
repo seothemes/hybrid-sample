@@ -4,7 +4,19 @@
 
 	<?php if ( ! is_front_page() && hybrid_is_plural() ) : // If viewing a multi-post page ?>
 
-		<?php locate_template( array( 'misc/archive-header.php' ), true ); // Loads the misc/archive-header.php template. ?>
+		<header <?php hybrid_attr( 'archive-header' ); ?>>
+
+			<h1 <?php hybrid_attr( 'archive-title' ); ?>><?php the_archive_title(); ?></h1>
+
+			<?php if ( ! is_paged() && $desc = get_the_archive_description() ) : // Check if we're on page/1. ?>
+
+				<div <?php hybrid_attr( 'archive-description' ); ?>>
+					<?php echo $desc; ?>
+				</div><!-- .archive-description -->
+
+			<?php endif; // End paged check. ?>
+
+		</header><!-- .archive-header -->
 
 	<?php endif; // End check for multi-post page. ?>
 
@@ -24,7 +36,7 @@
 
 		<?php endwhile; // End found posts loop. ?>
 
-		<?php locate_template( array( 'misc/loop-nav.php' ), true ); // Loads the misc/loop-nav.php template. ?>
+		<?php locate_template( array( 'menu/loop-nav.php' ), true ); // Loads the menu/loop-nav.php template. ?>
 
 	<?php else : // If no posts were found. ?>
 

@@ -2,6 +2,8 @@
 
 	<nav <?php hybrid_attr( 'menu', 'primary' ); ?>>
 
+		<button class="menu-toggle">☰<span class="screen-reader-text"><?php echo hybrid_get_menu_name( 'primary' ); ?></span></button><!-- .menu-toggle -->
+
 		<?php wp_nav_menu(
 			array(
 				'theme_location'  => 'primary',

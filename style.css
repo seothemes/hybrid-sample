@@ -19,623 +19,625 @@
  * Defaults
  * --------------------------------------------------------------------------- */
 
-/* === HTML === */
+ /* === HTML === */
 
-html {}
+ html {}
 
-/* === Body === */
+ /* === Body === */
 
-body {
-}
+ body {
+ }
 
-/* === Links === */
+ /* === Links === */
 
-a {}
+ a {
+	 word-wrap: break-word;
+ }
 
-	a:hover {}
+ a:hover {}
 
-/* === Headers === */
+ /* === Headers === */
 
-h1 {}
+ h1 {}
 
-h2 {}
+ h2 {}
 
-h3 {}
+ h3 {}
 
-h4 {}
+ h4 {}
 
-h5 {}
+ h5 {}
 
-h6 {}
+ h6 {}
 
-/* === Blockquotes, quotes, and cites === */
+ /* === Blockquotes, quotes, and cites === */
 
-blockquote {}
+ blockquote {}
 
-	blockquote blockquote {}
+ blockquote blockquote {}
 
-	blockquote cite {}
+ blockquote cite {}
 
-/* === Acronyms and abbreviations === */
+ /* === Acronyms and abbreviations === */
 
-acronym {}
+ acronym {}
 
-abbr {}
+ abbr {}
 
-/* === Code and Preformatted text === */
+ /* === Code and Preformatted text === */
 
-code {}
+ code {}
 
-pre {}
+ pre {}
 
-	pre code {}
+ pre code {}
 
-/* === <address> tag === */
+ /* === <address> tag === */
 
-address {}
+ address {}
 
-/* === Lists === */
+ /* === Lists === */
 
-ul {}
+ ul {}
 
-	ul li {}
+ ul li {}
 
-ol {}
+ ol {}
 
-	ol li {}
+ ol li {}
 
-dl {}
+ dl {}
 
-	dt {}
+ dt {}
 
-	dd {}
+ dd {}
 
-/* === Tables === */
+ /* === Tables === */
 
-table {}
+ table {}
 
-	caption {}
+ caption {}
 
-	thead {}
+ thead {}
 
-	tfoot {}
+ tfoot {}
 
-	tbody {}
+ tbody {}
 
-	tr {}
+ tr {}
 
-	th {}
+ th {}
 
-	td {}
+ td {}
 
-	/* wp-calendar <table> */
+ /* wp-calendar <table> */
 
-	#wp-calendar {}
+ #wp-calendar {}
 
-/* === Embeds === */
+ /* === Embeds === */
 
-object {}
+ object {}
 
-embed {}
+ embed {}
 
-iframe {}
+ iframe {}
 
-video {}
+ video {}
 
-/* === Forms === */
+ /* === Forms === */
 
-form {}
+ form {}
 
-	fieldset {}
+ fieldset {}
 
-		fieldset legend {}
+ fieldset legend {}
 
-	label {}
+ label {}
 
-	input {}
+ input {}
 
-		/* Not all types, but these are more common for themes. */
-		input[type="button"] {}
-		input[type="checkbox"] {}
-		input[type="email"] {}
-		input[type="password"] {}
-		input[type="radio"] {}
-		input[type="reset"] {}
-		input[type="search"] {}
-		input[type="submit"] {}
-		input[type="text"] {}
-		input[type="url"] {}
+ /* Not all types, but these are more common for themes. */
+ input[type="button"] {}
+ input[type="checkbox"] {}
+ input[type="email"] {}
+ input[type="password"] {}
+ input[type="radio"] {}
+ input[type="reset"] {}
+ input[type="search"] {}
+ input[type="submit"] {}
+ input[type="text"] {}
+ input[type="url"] {}
 
-	textarea {}
+ textarea {}
 
-	select {}
+ select {}
 
-		select optgroup {}
+ select optgroup {}
 
-		select option {}
+ select option {}
 
-	button {}
+ button {}
 
-/* === Alignement (WP classes) === */
+ /* === Alignement (WP classes) === */
 
-.alignleft {}
+ .alignleft {}
 
-.alignright {}
+ .alignright {}
 
-.aligncenter {}
+ .aligncenter {}
 
-.alignnone {}
+ .alignnone {}
 
 
 /**
  * Images
  * --------------------------------------------------------------------------- */
 
-img {}
+ img {}
 
-	a img {}
+ a img {}
 
-/* === WP editor image sizes === */
+ /* === WP editor image sizes === */
 
-img.size-thumbnail {}
+ img.size-thumbnail {}
 
-img.size-medium {}
+ img.size-medium {}
 
-img.size-large {}
+ img.size-large {}
 
-img.size-full {}
+ img.size-full {}
 
-/* === Thumbnails === */
+ /* === Thumbnails === */
 
-.thumbnail {}
+ .thumbnail {}
 
-/* === Captions === */
+ /* === Captions === */
 
-.wp-caption {}
+ .wp-caption {}
 
-	.wp-caption img {}
+ .wp-caption img {}
 
-	.wp-caption-text {}
+ .wp-caption-text {}
 
-		.wp-caption-text a {}
-		.wp-caption-text a:hover {}
+ .wp-caption-text a {}
+ .wp-caption-text a:hover {}
 
-/* === Gallery === */
+ /* === Gallery === */
 
-.gallery {}
+ .gallery {}
 
-	.gallery .gallery-item {}
+ .gallery .gallery-item {}
 
-		.gallery-icon {}
+ .gallery-icon {}
 
-			.gallery .gallery-icon img {}
+ .gallery .gallery-icon img {}
 
-		.gallery .gallery-caption {}
+ .gallery .gallery-caption {}
 
-/* === Avatars === */
+ /* === Avatars === */
 
-.avatar {}
+ .avatar {}
 
-	a .avatar {}
-	a:hover .avatar {}
+ a .avatar {}
+ a:hover .avatar {}
 
 /**
  * Layout
  * --------------------------------------------------------------------------- */
 
-	#container {}
+ #container {}
 
-		.layout-1c #container {}
-		.layout-2c-l #container {}
-		.layout-2c-r #container {}
-		.layout-3c-l #container {}
-		.layout-3c-r #container {}
-		.layout-3c-c #container {}
+ .layout-1c #container {}
+ .layout-2c-l #container {}
+ .layout-2c-r #container {}
+ .layout-3c-l #container {}
+ .layout-3c-r #container {}
+ .layout-3c-c #container {}
 
-		#header {}
+ #header {}
 
-		#menu-primary {}
+ #menu-primary {}
 
-		#menu-secondary {}
+ #menu-secondary {}
 
-		#main {}
+ #main {}
 
-			#content {}
+ #content {}
 
-			#sidebar-primary {}
+ #sidebar-primary {}
 
-			#sidebar-secondary {}
+ #sidebar-secondary {}
 
-		#menu-subsidiary {}
+ #menu-subsidiary {}
 
-		#sidebar-subsidiary {}
+ #sidebar-subsidiary {}
 
-		#footer {}
+ #footer {}
 
 /**
  * Header
  * --------------------------------------------------------------------------- */
 
-#header {}
+ #header {}
 
-	#branding {}
+ #branding {}
 
-		#site-title {}
+ #site-title {}
 
-			#site-title a {}
-			#site-title a:hover {}
+ #site-title a {}
+ #site-title a:hover {}
 
-		#site-description {}
+ #site-description {}
 
 /**
  * Menus
  * --------------------------------------------------------------------------- */
 
-.menu-toggle {}
+ .menu-toggle {}
 
-/* ====== Primary Menu ====== */
+ /* ====== Primary Menu ====== */
 
-#menu-primary {}
+ #menu-primary {}
 
-	#menu-primary .wrap {}
+ #menu-primary .wrap {}
 
-		#menu-primary ul {}
+ #menu-primary ul {}
 
-			#menu-primary ul ul {}
+ #menu-primary ul ul {}
 
-			#menu-primary li {}
-			#menu-primary li.current-menu-item {}
+ #menu-primary li {}
+ #menu-primary li.current-menu-item {}
 
-				#menu-primary li a {}
-				#menu-primary li a:hover {}
+ #menu-primary li a {}
+ #menu-primary li a:hover {}
 
-/* ====== Secondary Menu ====== */
+ /* ====== Secondary Menu ====== */
 
-#menu-secondary {}
+ #menu-secondary {}
 
-	#menu-secondary .wrap {}
+ #menu-secondary .wrap {}
 
-		#menu-secondary ul {}
+ #menu-secondary ul {}
 
-			#menu-secondary ul ul {}
+ #menu-secondary ul ul {}
 
-			#menu-secondary li {}
-			#menu-secondary li.current-menu-item {}
+ #menu-secondary li {}
+ #menu-secondary li.current-menu-item {}
 
-				#menu-secondary li a {}
-				#menu-secondary li a:hover {}
+ #menu-secondary li a {}
+ #menu-secondary li a:hover {}
 
-/* ====== Subsidiary Menu ====== */
+ /* ====== Subsidiary Menu ====== */
 
-#menu-subsidiary {}
+ #menu-subsidiary {}
 
-	#menu-subsidiary .wrap {}
+ #menu-subsidiary .wrap {}
 
-		#menu-subsidiary ul {}
+ #menu-subsidiary ul {}
 
-			#menu-subsidiary li {}
-			#menu-subsidiary li.current-menu-item {}
+ #menu-subsidiary li {}
+ #menu-subsidiary li.current-menu-item {}
 
-				#menu-subsidiary li a {}
-				#menu-subsidiary li a:hover {}
+ #menu-subsidiary li a {}
+ #menu-subsidiary li a:hover {}
 
 /**
  * Content
  * --------------------------------------------------------------------------- */
 
-/* ====== BREADCRUMBS ====== */
+ /* ====== BREADCRUMBS ====== */
 
-.breadcrumb-trail {}
+ .breadcrumb-trail {}
 
-	.breadcrumb-trail .trail-begin {}
+ .breadcrumb-trail .trail-begin {}
 
-	.breadcrumb-trail .trail-end {}
+ .breadcrumb-trail .trail-end {}
 
-	.breadcrumb-trail .sep {}
+ .breadcrumb-trail .sep {}
 
-	.breadcrumb-trail a {}
-	.breadcrumb-trail a:hover {}
+ .breadcrumb-trail a {}
+ .breadcrumb-trail a:hover {}
 
-/* ====== POSTS ====== */
+ /* ====== POSTS ====== */
 
-.hentry  {}
-.sticky {}
+ .hentry  {}
+ .sticky {}
 
-	/* === Post Header === */
+ /* === Post Header === */
 
-	.entry-header {}
+ .entry-header {}
 
-		.entry-title {}
+ .entry-title {}
 
-			.entry-title a {}
-			.entry-title a:hover {}
+ .entry-title a {}
+ .entry-title a:hover {}
 
-		.entry-byline {}
+ .entry-byline {}
 
-			.entry-byline a {}
-			.entry-byline a:hover {}
+ .entry-byline a {}
+ .entry-byline a:hover {}
 
-			.entry-byline .published {}
+ .entry-byline .published {}
 
-	/* === Post content and excerpts === */
+ /* === Post content and excerpts === */
 
-	.entry-content {}
+ .entry-content {}
 
-	.entry-summary {}
+ .entry-summary {}
 
-	/* === Post Footer === */
+ /* === Post Footer === */
 
-	.entry-footer {}
+ .entry-footer {}
 
-		.entry-meta {}
+ .entry-meta {}
 
-			.entry-meta a {}
-			.entry-meta a:hover {}
+ .entry-meta a {}
+ .entry-meta a:hover {}
 
-			.entry-meta .published {}
+ .entry-meta .published {}
 
-			.entry-meta .category {}
-			.entry-meta .post_tag {}
+ .entry-meta .category {}
+ .entry-meta .post_tag {}
 
-	/* === Asides === */
+ /* === Asides === */
 
-	.format-aside {}
+ .format-aside {}
 
-		.format-aside .entry-content a.permalink {}
+ .format-aside .entry-content a.permalink {}
 
-	/* === Chats === */
+ /* === Chats === */
 
-	.format-chat {}
+ .format-chat {}
 
-		.format-chat .chat-row {}
+ .format-chat .chat-row {}
 
-			.format-chat .chat-text {}
+ .format-chat .chat-text {}
 
-			.format-chat cite {}
+ .format-chat cite {}
 
-			.format-chat .chat-speaker-1 {}
-			.format-chat .chat-speaker-2 {}
-			.format-chat .chat-speaker-3 {}
-			.format-chat .chat-speaker-4 {}
-			.format-chat .chat-speaker-5 {}
-			.format-chat .chat-speaker-6 {}
-			.format-chat .chat-speaker-7 {}
-			.format-chat .chat-speaker-8 {}
-			.format-chat .chat-speaker-9 {}
+ .format-chat .chat-speaker-1 {}
+ .format-chat .chat-speaker-2 {}
+ .format-chat .chat-speaker-3 {}
+ .format-chat .chat-speaker-4 {}
+ .format-chat .chat-speaker-5 {}
+ .format-chat .chat-speaker-6 {}
+ .format-chat .chat-speaker-7 {}
+ .format-chat .chat-speaker-8 {}
+ .format-chat .chat-speaker-9 {}
 
-	/* === Links === */
+ /* === Links === */
 
-	.format-link {}
+ .format-link {}
 
-		.format-link .entry-title {}
+ .format-link .entry-title {}
 
-			.format-link .entry-title a {}
-			.format-link .entry-title a:hover {}
+ .format-link .entry-title a {}
+ .format-link .entry-title a:hover {}
 
-				.format-link .entry-title a .meta-nav {}
+ .format-link .entry-title a .meta-nav {}
 
-	/* === Galleries === */
+ /* === Galleries === */
 
-	.format-gallery {}
+ .format-gallery {}
 
-		.format-gallery .image-count {}
+ .format-gallery .image-count {}
 
-	/* === Quotes === */
+ /* === Quotes === */
 
-	.format-quote {}
+ .format-quote {}
 
-		.format-quote blockquote {}
+ .format-quote blockquote {}
 
-			.format-quote blockquote cite {}
+ .format-quote blockquote cite {}
 
-	/* === Status updates === */
+ /* === Status updates === */
 
-	.format-status
+ .format-status
 
-		.format-status .avatar {}
+ .format-status .avatar {}
 
-	/* === Audio and Video === */
+ /* === Audio and Video === */
 
-	.format-video {}
-	.format-audio {}
+ .format-video {}
+ .format-audio {}
 
 
-/* ====== Attachment Meta (on image attachment pages) ====== */
+ /* ====== Attachment Meta (on image attachment pages) ====== */
 
-.attachment-meta {}
+ .attachment-meta {}
 
-	.attachment-meta .image-gallery {}
+ .attachment-meta .image-gallery {}
 
-	.attachment-meta .image-info {}
+ .attachment-meta .image-info {}
 
-		.image-info ul {}
+ .image-info ul {}
 
-			.image-info ul li {}
+ .image-info ul li {}
 
-				.image-info .prep {}
+ .image-info .prep {}
 
-				.image-info .image-data {}
+ .image-info .image-data {}
 
 
-/* ====== LOOP META ====== */
+ /* ====== LOOP META ====== */
 
-.loop-meta {}
+ .loop-meta {}
 
-	.loop-title {}
+ .loop-title {}
 
-	.loop-description {}
+ .loop-description {}
 
-/* ====== PAGINATION ====== */
+ /* ====== PAGINATION ====== */
 
-/* === Single posts using <!--nextpage--> === */
+ /* === Single posts using <!--nextpage--> === */
 
-.page-links {}
+ .page-links {}
 
-	.page-links .before {}
+ .page-links .before {}
 
-	.page-links a {}
-	.page-links a:hover {}
+ .page-links a {}
+ .page-links a:hover {}
 
-/* === Single post navigation (between different posts) === */
+ /* === Single post navigation (between different posts) === */
 
-.loop-nav {}
+ .loop-nav {}
 
-	.loop-nav a {}
-	.loop-nav a:hover {}
+ .loop-nav a {}
+ .loop-nav a:hover {}
 
-	.loop-nav a[rel="prev"] {}
+ .loop-nav a[rel="prev"] {}
 
-	.loop-nav a[rel="next"] {}
+ .loop-nav a[rel="next"] {}
 
-/* === Archive-type pages === */
+ /* === Archive-type pages === */
 
-.loop-pagination {}
+ .loop-pagination {}
 
-	.loop-pagination .page-numbers {}
+ .loop-pagination .page-numbers {}
 
-	.loop-pagination a.page-numbers {}
-	.loop-pagination a.page-numbers:hover {}
+ .loop-pagination a.page-numbers {}
+ .loop-pagination a.page-numbers:hover {}
 
-	.page-numbers.current {}
+ .page-numbers.current {}
 
-/* === Comments pagination === */
+ /* === Comments pagination === */
 
-.comments-nav {}
+ .comments-nav {}
 
-	.comments-nav a {}
-	.comments-nav a:hover {}
+ .comments-nav a {}
+ .comments-nav a:hover {}
 
-	.comments-nav .page-numbers {}
+ .comments-nav .page-numbers {}
 
 /**
  * Sidebars and widgets
  * --------------------------------------------------------------------------- */
 
-/* ====== General ====== */
+ /* ====== General ====== */
 
-.sidebar {}
+ .sidebar {}
 
-	.widget {}
+ .widget {}
 
-		.widget-title {}
+ .widget-title {}
 
-/* ====== Specific ====== */
+ /* ====== Specific ====== */
 
-#sidebar-primary {}
+ #sidebar-primary {}
 
-#sidebar-secondary {}
+ #sidebar-secondary {}
 
-#sidebar-subsidiary {}
+ #sidebar-subsidiary {}
 
-#sidebar-header {}
+ #sidebar-header {}
 
-#sidebar-before-content {}
+ #sidebar-before-content {}
 
-#sidebar-after-content {}
+ #sidebar-after-content {}
 
-#sidebar-after-singular {}
+ #sidebar-after-singular {}
 
 
 /**
  * Comments Template
  * --------------------------------------------------------------------------- */
 
-#comments-template {}
+ #comments-template {}
 
-/* ====== COMMENTS ======= */
+ /* ====== COMMENTS ======= */
 
-#comments {}
+ #comments {}
 
-	#comments-number {}
+ #comments-number {}
 
-	/* === Comments closed message === */
+ /* === Comments closed message === */
 
-	.comments-closed {}
+ .comments-closed {}
 
-	.comments-closed.pings-open {}
+ .comments-closed.pings-open {}
 
-	/* === Comment list === */
+ /* === Comment list === */
 
-	ol.comment-list {}
+ ol.comment-list {}
 
-		ol.comment-list ol.children {}
+ ol.comment-list ol.children {}
 
-		/* === Individual comments */
+ /* === Individual comments */
 
-		li.comment {}
+ li.comment {}
 
-		li.ping {}
+ li.ping {}
 
-		li.bypostauthor {}
+ li.bypostauthor {}
 
-			/* === Avatars === */
+ /* === Avatars === */
 
-			.comment-list .avatar {}
+ .comment-list .avatar {}
 
-			/* === Meta === */
+ /* === Meta === */
 
-			.comment-meta {}
+ .comment-meta {}
 
-				.comment-author {}
+ .comment-author {}
 
-					.comment-author cite {}
+ .comment-author cite {}
 
-				.comment-meta .published {}
+ .comment-meta .published {}
 
-			/* === Comment text/content === */
+ /* === Comment text/content === */
 
-			.comment-content {}
-
-
-			/* === Reply link === */
-
-			.comment-reply-link {}
-			.comment-reply-link:hover {}
+ .comment-content {}
 
 
-/* ====== RESPOND (COMMENT FORM) ====== */
+ /* === Reply link === */
 
-#respond {}
+ .comment-reply-link {}
+ .comment-reply-link:hover {}
 
-	#reply-title {}
 
-		#reply-title small {}
+ /* ====== RESPOND (COMMENT FORM) ====== */
 
-	#respond .log-in-out {}
+ #respond {}
 
-	#respond label {}
+ #reply-title {}
 
-		#respond label .required {}
+ #reply-title small {}
 
-	#respond input[type="text"] {}
-	#respond input[type="text"]:focus {}
+ #respond .log-in-out {}
 
-	#respond input[type="url"] {}
-	#respond input[type="url"]:focus {}
+ #respond label {}
 
-	#respond input[type="email"] {}
-	#respond input[type="email"]:focus {}
+ #respond label .required {}
 
-	#respond input[type="submit"] {}
-	#respond input[type="submit"]:focus {}
-	#respond input[type="submit"]:hover {}
+ #respond input[type="text"] {}
+ #respond input[type="text"]:focus {}
 
-	#respond textarea {}
-	#respond textarea:focus {}
+ #respond input[type="url"] {}
+ #respond input[type="url"]:focus {}
+
+ #respond input[type="email"] {}
+ #respond input[type="email"]:focus {}
+
+ #respond input[type="submit"] {}
+ #respond input[type="submit"]:focus {}
+ #respond input[type="submit"]:hover {}
+
+ #respond textarea {}
+ #respond textarea:focus {}
 
 
 /**
  * Footer
  * --------------------------------------------------------------------------- */
 
-#footer {}
+ #footer {}
 
-	#footer .copyright {}
+ #footer .copyright {}
 
-	#footer .credit {}
+ #footer .credit {}
 
-	#footer a {}
-	#footer a:hover {}
+ #footer a {}
+ #footer a:hover {}
 
 /**
  * Media Queries
@@ -646,10 +648,10 @@ img.size-full {}
  * Clearing Floats
  * --------------------------------------------------------------------------- */
 
-.clearfix::after {
-	content:    ".";
-	display:    block;
-	height:     0;
-	clear:      both;
-	visibility: hidden;
-}
+ .clearfix::after {
+ 	content:    ".";
+ 	display:    block;
+ 	height:     0;
+ 	clear:      both;
+ 	visibility: hidden;
+ }
