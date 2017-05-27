@@ -24,6 +24,7 @@ function hybrid_base_custom_header_setup() {
 			'default-text-color'     => '000000',
 			'header-text'            => true,
 			'uploads'                => true,
+			'video'					 => true,
 			'wp-head-callback'       => 'hybrid_base_custom_header_wp_head'
 		)
 	);

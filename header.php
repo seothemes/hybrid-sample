@@ -1,5 +1,5 @@
 <!doctype html>
-<html <?php language_attributes( 'html' ); ?> class="no-js">
+<html <?php hybrid_attr( 'html' ); ?>>
 	<head <?php hybrid_attr( 'head' ); ?>>
 		<?php wp_head(); // Hook required for scripts, styles, and other <head> items. ?>
 	</head>

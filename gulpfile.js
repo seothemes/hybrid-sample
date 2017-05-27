@@ -24,16 +24,16 @@ var autoprefixer = require( 'autoprefixer' 	   ),
 
 // Set assets paths.
 var js_src       = [ 'assets/scripts/*.js', '!assets/scripts/*.min.js' ],
-	js_dest      = [ 'assets/scripts/min' 							   ],
-	sass_src     = [ 'assets/styles/*.scss' 						   ],
-	sass_dest    = [ './'											   ],
-	img_src      = [ 'assets/images/*', '!assets/images/*.svg' 		   ],
-	img_dest     = [ 'assets/images' 								   ],
-	php_src		 = [ './*.php', './**/*.php', './**/**/*.php' 		   ],
-	php_dest	 = [ './' 											   ];
+	js_dest      = 'assets/scripts/min',
+	sass_src     = 'assets/styles/*.scss',
+	sass_dest    = './',
+	img_src      = [ 'assets/images/*', '!assets/images/*.svg' ],
+	img_dest     = 'assets/images',
+	php_src		 = [ './*.php', './**/*.php', './**/**/*.php' ],
+	php_dest	 = './';
 
 // Set BrowserSync proxy url.
-var dev_url      = 'hybrid-base.dev',
+var dev_url      = 'local-seo.dev',
 	reload       = browserSync.reload;
 
 /**
@@ -92,6 +92,9 @@ gulp.task( 'sass', function () {
 		.pipe(cssnano( {
 			safe: true // Use safe optimizations.
 		} ) )
+
+		// Add .min suffix.
+		.pipe( rename( { suffix: '.min' } ) )
 
 		// Write source map
 		.pipe( sourcemaps.write( sass_dest ) )
