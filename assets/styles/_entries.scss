@@ -1,5 +1,16 @@
 /* ====== POSTS ====== */
 
+.entry {
+	background-color: $color-white;
+	@include scale(padding,margin-top);
+	&:first-of-type {
+		margin-top: 0;
+	}
+	> a {
+		display: block;
+	}
+}
+
 .hentry  {}
 .sticky {}
 
@@ -9,25 +20,59 @@
 
 .entry-title {}
 
-.entry-title a {}
-.entry-title a:hover {}
+.entry-title a {
+	color: $color-body;
+	text-decoration: none;
 
-.entry-byline {}
+	&:hover {
+		color: $color-accent;
+	}
+}
 
-.entry-byline a {}
-.entry-byline a:hover {}
+.entry-byline {
+	margin-bottom: 1em;
+	font-size: 1.6rem;
+}
 
-.entry-byline .published {}
+.entry-author {
+	text-transform: capitalize;
+}
 
 /* === Post content and excerpts === */
 
-.entry-content {}
+.entry-content {
+	@include clearfix;
+	ul, ol {
+		padding-left: 1em;
+	}
+	ul li {
+		list-style-type: disc;
+	}
+	ol li {
+		list-style-type: decimal;
+	}
+	li {
+		margin-bottom: 1rem;
+		li {
+			list-style-type: circle;
+		}
+	}
+}
 
 .entry-summary {}
 
 /* === Post Footer === */
 
-.entry-footer {}
+.entry-footer {
+	font-size: 1.6rem;
+	border-top: $site-border;
+	padding-top: 1em;
+
+	.page & {
+		padding: 0;
+		border: none;
+	}
+}
 
 .entry-meta {}
 

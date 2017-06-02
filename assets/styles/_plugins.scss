@@ -1,0 +1,358 @@
+/* ====== Simple Social Icons ====== */
+
+.widget.simple-social-icons {
+    .alignleft li {
+        margin: 0 1.2rem 1.2rem 0 !important;
+    }
+    .alignright li {
+        margin: 0 0 1.2rem 1.2rem !important;
+    }
+    ul li {
+        a {
+            line-height: 0;
+        }
+    }
+}
+
+
+/* ====== Gravity Forms ====== */
+
+.gform_heading,
+.gform_body,
+.gform_footer {
+    clear: both;
+}
+
+.gform_heading {
+    padding-bottom: 1em;
+}
+
+.gform_wrapper {
+    .gform_fields {
+        list-style: none;
+        margin: 0 -1rem;
+        padding: 0;
+        li {
+            list-style-type: none;
+        }
+    }
+    .gfield_checkbox,
+    .gfield_radio {
+        list-style: none;
+        padding: 0;
+    }
+}
+
+.ginput_container {
+    span {
+        margin-bottom: 1rem;
+    }
+    input,
+    select,
+    textarea {
+        width: 100%;
+    }
+    input,
+    textarea {
+        margin: 0;
+    }
+}
+
+.gfield_label {
+    display: inline-block;
+    padding-bottom: 1rem;
+    &:empty {
+        display: none;
+    }
+    .left_label & {
+        float: left;
+    }
+    .right_label & {
+        float: right;
+    }
+}
+
+.gfield_required {
+    padding-left: 0.1em;
+}
+
+.gfield_checkbox,
+.gfield_radio {
+    li {
+        width: 100%;
+    }
+    input {
+        width: auto;
+        float: left;
+        margin-right: 1rem;
+    }
+    label {
+        float: left;
+        line-height: 1;
+    }
+}
+
+.gsection {
+    margin: 1rem 0;
+    h2 {
+        border-bottom: $site-border;
+        padding-bottom: 1rem;
+    }
+}
+
+.gf_progressbar_wrapper {
+    padding-bottom: 15px;
+}
+
+.gf_progressbar {
+    background: gray;
+}
+
+.gf_progressbar_percentage {
+    background: red;
+    padding: 5px 1rem;
+    text-align: right;
+}
+
+.gfield_time_hour,
+.gfield_time_minute,
+.gfield_time_ampm {
+    display: inline;
+    display: inline-block;
+}
+
+.gfield_time_hour,
+.gfield_time_minute {
+    label {
+        display: block;
+    }
+}
+
+.gfield_time_ampm {
+    vertical-align: top;
+}
+
+.validation_error {
+    font-size: 1.2em;
+    font-weight: $bold;
+    padding-bottom: 15px;
+}
+
+.gfield {
+    width: 100%;
+    list-style-type: none;
+    clear: both;
+    overflow: auto;
+    padding: 0 1rem 1.5rem;
+    margin: 0;
+    &.gfield_error {
+        background: #FFDFE0;
+        margin-bottom: 15px;
+        padding-top: 15px;
+        .gfield_label {
+            font-weight: $bold;
+        }
+    }
+    &.gfield_contains_required {}
+    .validation_message {
+        font-weight: $bold;
+        margin-top: 1rem;
+    }
+    li {
+        list-style-type: none;
+    }
+}
+
+.gform_validation_container {
+    display: none;
+}
+
+.gform_footer {
+    .gform_button {
+        width: auto;
+    }
+}
+
+.ginput_full {
+    display: block;
+    input,
+    select,
+    textarea {
+        margin-bottom: 5px;
+        width: 100%;
+    }
+    label {
+        display: block;
+    }
+}
+
+.ginput_left {
+    float: left;
+    padding-right: 1rem;
+    input,
+    select,
+    textarea {
+        margin-bottom: 5px;
+        width: 100%;
+    }
+    label {
+        display: block;
+    }
+}
+
+.ginput_right {
+    float: right;
+    input,
+    select,
+    textarea {
+        margin-bottom: 5px;
+        width: 100%;
+    }
+    label {
+        display: block;
+    }
+}
+
+.gf_left_half {
+    clear: none;
+    float: left;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+
+.gf_right_half {
+    clear: none;
+    float: right;
+    padding-bottom: 1rem;
+}
+
+.gf_left_third {
+    clear: none;
+    float: left;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+
+.gf_middle_third {
+    clear: none;
+    float: left;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+
+.gf_right_third {
+    clear: none;
+    float: right;
+    padding-bottom: 1rem;
+}
+
+.gf_first_quarter {
+    clear: none;
+    float: left;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+
+.gf_second_quarter {
+    clear: none;
+    float: left;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+}
+
+.gf_third_quarter {
+    clear: none;
+    float: left;
+    padding-bottom: 1rem;
+}
+
+.gf_fourth_quarter {
+    clear: none;
+    float: right;
+    padding-bottom: 1rem;
+}
+
+li {
+    .gf_list_2col & {
+        float: left;
+        padding-bottom: 1rem;
+    }
+    .gf_list_3col & {
+        float: left;
+        padding-bottom: 1rem;
+    }
+    .gf_list_4col & {
+        float: left;
+        padding-bottom: 1rem;
+    }
+    .gf_list_5col & {
+        float: left;
+        padding-bottom: 1rem;
+    }
+    .gf_list_inline & {
+        display: inline-block;
+        padding-right: 1rem;
+        padding-bottom: 1rem;
+    }
+}
+
+@include breakpoint(xs) {
+    .ginput_container {
+        input,
+        select,
+        textarea {
+            &.large {
+                width: 100%;
+            }
+            &.medium {
+                width: 66%;
+            }
+            &.small {
+                width: 33%;
+            }
+        }
+    }
+    .ginput_left,
+    .ginput_right {
+        width: 50%;
+    }
+    label.gfield_label {
+        .left_label & {
+            width: 25%;
+        }
+        .right_label & {
+            width: 25%;
+        }
+    }
+    li {
+        &.gf_left_half,
+        &.gf_right_half {
+            width: 50%;
+        }
+        &.gf_left_third,
+        &.gf_right_third {
+            width: 33%;
+        }
+        &.gf_middle_third {
+            width: 34%;
+        }
+        &.gf_first_quarter,
+        &.gf_second_quarter,
+        &.gf_third_quarter,
+        &.gf_fourth_quarter {
+            width: 25%;
+        }
+        .gf_list_2col & {
+            width: 50%;
+        }
+        .gf_list_3col & {
+            width: 33%;
+        }
+        .gf_list_4col & {
+            width: 25%;
+        }
+        .gf_list_5col & {
+            width: 20%;
+        }
+    }
+}

@@ -1,7 +1,21 @@
 <?php
+/**
+ * Handles the custom background feature for the theme.
+ *
+ * This feature allows the theme or child theme author to
+ * set a custom background by default. However the user can
+ * overwrite this default background via the theme customizer
+ * to an image or color of their choosing.
+ *
+ * @package    HybridSample
+ * @author     SEO Themes <seothemeswp@gmail.com>
+ * @copyright  Copyright (c) '93 - Infinity, SEO Themes
+ * @link       http://seothemes.net/themes/hybrid-sample
+ * @license    GPL 2.0
+ */
 
-# Call late so child themes can override.
-add_action( 'after_setup_theme', 'hybrid_base_custom_background_setup', 15 );
+// Call late so child themes can override.
+add_action( 'after_setup_theme', 'hybrid_sample_custom_background_setup', 15 );
 
 /**
  * Adds support for the WordPress 'custom-background' theme feature.
@@ -10,14 +24,14 @@ add_action( 'after_setup_theme', 'hybrid_base_custom_background_setup', 15 );
  * @access public
  * @return void
  */
-function hybrid_base_custom_background_setup() {
+function hybrid_sample_custom_background_setup() {
 
 	add_theme_support(
 		'custom-background',
 		array(
-			'default-color'    => 'ffffff',
+			'default-color'    => 'eeeeee',
 			'default-image'    => '',
-			'wp-head-callback' => 'hybrid_base_custom_background_callback',
+			'wp-head-callback' => 'hybrid_sample_custom_background_callback',
 		)
 	);
 }
@@ -35,7 +49,7 @@ function hybrid_base_custom_background_setup() {
  * @access public
  * @return void
  */
-function hybrid_base_custom_background_callback() {
+function hybrid_sample_custom_background_callback() {
 
 	// Get the background image.
 	$image = get_background_image();
@@ -50,14 +64,16 @@ function hybrid_base_custom_background_callback() {
 	$color = get_background_color();
 
 	// If no background color, return.
-	if ( ! $color )
+	if ( ! $color ) {
 		return;
+	}
 
 	// Use 'background' instead of 'background-color'.
 	$style = "background: #{$color};";
 
-?>
-<style type="text/css" id="custom-background-css">body.custom-background { <?php echo trim( $style ); ?> }</style>
-<?php
-
+	if ( $color !== 'ffffff' ) {
+		?>
+		<style type="text/css" id="custom-background-css">body.custom-background { <?php echo trim( $style ); ?> }</style>
+		<?php
+	}
 }

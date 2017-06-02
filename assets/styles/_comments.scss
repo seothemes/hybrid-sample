@@ -2,13 +2,23 @@
  * Comments Template
  * --------------------------------------------------------------------------- */
 
-#comments-template {}
-
 /* ====== COMMENTS ======= */
 
-#comments {}
+.comments {
+    background-color: $color-white;
+    @include scale(padding, margin-top);
 
-#comments-number {}
+    ul,
+    ol {
+        list-style-type: none;
+        padding: 0;
+
+        ul,
+        ol {
+            @include scale(padding-left);
+        }
+    }
+}
 
 /* === Comments closed message === */
 
@@ -16,78 +26,118 @@
 
 .comments-closed.pings-open {}
 
+
 /* === Comment list === */
 
 ol.comment-list {}
 
 ol.comment-list ol.children {}
 
+
 /* === Individual comments */
 
-li.comment {}
+.comment {
+    font-size: 1.6rem;
+    @include scale(margin-top, margin-bottom);
+}
+.ping {}
+.bypostauthor {}
 
-li.ping {}
 
-li.bypostauthor {}
+/* === Header === */
+
+.comment-header {}
+
 
 /* === Avatars === */
 
-.comment-list .avatar {}
+.avatar {
+    border-radius: 99px;
+    margin-right: 1em;
+    float: left;
+}
+
+a .avatar {}
+a:hover .avatar {}
+
 
 /* === Meta === */
 
-.comment-meta {}
+.comment-author {
+    font-style: normal;
+}
 
-.comment-author {}
-
-.comment-author cite {}
+.comment-meta {
+    font-size: 1.6rem;
+}
 
 .comment-meta .published {}
 
+
 /* === Comment text/content === */
 
-.comment-content {}
+.comment-content {
+    padding: 1em 0;
+}
+
 
 /* === Reply link === */
 
-.comment-reply-link {}
+.comment-reply-link {
+    margin: -2em 0 2em;
+    display: block;
+}
+
 .comment-reply-link:hover {}
+
 
 /* === Comments pagination === */
 
 .comments-nav {}
 
 .comments-nav a {}
+
 .comments-nav a:hover {}
 
 .comments-nav .page-numbers {}
 
+
 /* ====== RESPOND (COMMENT FORM) ====== */
 
-#respond {}
+.comment-respond {
+    background-color: $color-white;
+    @include scale(padding,margin-top);
+    ul &,
+    ol & {
+        padding: 0;
+    }
+    .log-in-out {}
+    label {}
+    label .required {}
+    input {
+        width: 100%;
+    }
+    input[type="text"] {}
+    input[type="text"]:focus {}
+    input[type="url"] {}
+    input[type="url"]:focus {}
+    input[type="email"] {}
+    input[type="email"]:focus {}
+    input[type="submit"] {
+        width: auto;
+    }
+    input[type="submit"]:focus {}
+    input[type="submit"]:hover {}
+    textarea {
+        width: 100%;
+    }
+    textarea:focus {}
+}
 
-#reply-title {}
-
-#reply-title small {}
-
-#respond .log-in-out {}
-
-#respond label {}
-
-#respond label .required {}
-
-#respond input[type="text"] {}
-#respond input[type="text"]:focus {}
-
-#respond input[type="url"] {}
-#respond input[type="url"]:focus {}
-
-#respond input[type="email"] {}
-#respond input[type="email"]:focus {}
-
-#respond input[type="submit"] {}
-#respond input[type="submit"]:focus {}
-#respond input[type="submit"]:hover {}
-
-#respond textarea {}
-#respond textarea:focus {}
+.comment-form-author,
+.comment-form-email,
+.comment-form-url {
+    @include breakpoint(sm) {
+        width: 50%;
+    }
+}

@@ -1,11 +1,12 @@
 // Require our dependencies.
 var autoprefixer = require( 'autoprefixer' 	   ),
-	browserSync  = require( 'browser-sync' 	   ),
+	browsersync  = require( 'browser-sync' 	   ),
 	mqpacker 	 = require( 'css-mqpacker' 	   ),
 	gulp         = require( 'gulp' 			   ),
 	bump 		 = require( 'gulp-bump' 	   ),
 	beautify  	 = require( 'gulp-cssbeautify' ),
 	cache        = require( 'gulp-cached' 	   ),
+	cleancss 	 = require( 'gulp-clean-css'   ),
 	cssnano 	 = require( 'gulp-cssnano' 	   ),
 	filter       = require( 'gulp-filter' 	   ),
 	imagemin     = require( 'gulp-imagemin'    ),
@@ -24,7 +25,7 @@ var autoprefixer = require( 'autoprefixer' 	   ),
 
 // Set assets paths.
 var js_src       = [ 'assets/scripts/*.js', '!assets/scripts/*.min.js' ],
-	js_dest      = 'assets/scripts/min',
+	js_dest      = 'assets/scripts/',
 	sass_src     = 'assets/styles/*.scss',
 	sass_dest    = './',
 	img_src      = [ 'assets/images/*', '!assets/images/*.svg' ],
@@ -32,9 +33,9 @@ var js_src       = [ 'assets/scripts/*.js', '!assets/scripts/*.min.js' ],
 	php_src		 = [ './*.php', './**/*.php', './**/**/*.php' ],
 	php_dest	 = './';
 
-// Set BrowserSync proxy url.
+// Set browsersync proxy url.
 var dev_url      = 'local-seo.dev',
-	reload       = browserSync.reload;
+	reload       = browsersync.reload;
 
 /**
  * Autoprefixed browser support.
@@ -64,15 +65,15 @@ gulp.task( 'sass', function () {
 
 	gulp.src( sass_src )
 
-		// Notify on error
+		// Notify on error.
 		.pipe( plumber( { errorHandler: notify.onError( "Error: <%= error.message %>" ) } ) )
 
-		// Source maps init
+		// Source maps init.
 		.pipe( sourcemaps.init() )
 
-		// Process sass
+		// Process sass.
 		.pipe( sass( {
-			outputStyle: 'compressed'
+			outputStyle: 'expanded'
 		} ) )
 
 		// Pixel fallbacks for rem units.
@@ -88,27 +89,64 @@ gulp.task( 'sass', function () {
 			} ),
 		] ) )
 
+		.pipe ( cleancss( {
+			level: {
+				2: {
+					 all: true
+				}
+			},
+			format: {
+				breaks: {
+					afterAtRule: true,
+					afterBlockBegins: true,
+					afterBlockEnds: true,
+					afterComment: true,
+					afterProperty: true,
+					afterRuleBegins: true,
+					afterRuleEnds: true,
+					beforeBlockEnds: true,
+					betweenSelectors: true
+				},
+				indentBy: 1,
+				indentWith: 'tab',
+				spaces: {
+					aroundSelectorRelation: true,
+					beforeBlockBegins: true,
+					beforeValue: true
+				},
+				wrapAt: false
+			}
+		} ) )
+
+		// Output non compiled css to this directory.
+		.pipe( gulp.dest( sass_dest ) )
+
+		// Process sass.
+		.pipe( sass( {
+			outputStyle: 'compressed'
+		} ) )
+
 		// Minify and optimize style.css.
-		.pipe(cssnano( {
+		.pipe( cssnano( {
 			safe: true // Use safe optimizations.
 		} ) )
 
 		// Add .min suffix.
 		.pipe( rename( { suffix: '.min' } ) )
 
-		// Write source map
+		// Write source map.
 		.pipe( sourcemaps.write( sass_dest ) )
 
-		// Output the compiled sass to this directory
+		// Output the compiled sass to this directory.
 		.pipe( gulp.dest( sass_dest ) )
 
-		// Filtering stream to only css files
+		// Filtering stream to only css files.
 		.pipe( filter( '**/*.css' ) )
 
-		// Inject changes via browsersync
+		// Inject changes via browsersync.
 		.pipe( reload( {stream: true } ) )
 
-		// Notify on successful compile (uncomment for notifications)
+		// Notify on successful compile (uncomment for notifications).
 		.pipe( notify( "Compiled: <%= file.relative %>" ) );
 } );
 
@@ -169,7 +207,7 @@ gulp.task( 'images', function () {
 		.pipe( reload( { stream: true } ) )
 
 		// Notify on successful compile.
-		.pipe( notify( "Optimised: <%= file.relative %>" ) );
+		.pipe( notify( "Optimized: <%= file.relative %>" ) );
 } );
 
 /**
@@ -189,10 +227,10 @@ gulp.task( 'i18n', function() {
 
 	// POT information.
 	.pipe( wpPot( {
-		domain: 'store-pro',
-		destFile:'store-pro.pot',
-		package: 'store-pro',
-		bugReport: 'http://store-pro.com',
+		domain: 'hybrid-sample',
+		destFile:'hybrid-sample.pot',
+		package: 'hybrid-sample',
+		bugReport: 'http://hybrid-sample.com',
 		lastTranslator: 'Lee Anthony <seothemeswp@gmail.com>',
 		team: 'Seo Themes <seothemeswp@gmail.com>'
 	} ) )
@@ -253,8 +291,8 @@ gulp.task( 'zip', function() {
  */
 gulp.task( 'watch', function() {
 
-	// Kick off BrowserSync.
-	browserSync( {
+	// Kick off browsersync.
+	browsersync( {
 		proxy: dev_url,
 		notify: false,
 		open: false

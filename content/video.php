@@ -24,8 +24,8 @@
 		</div><!-- .entry-content -->
 
 		<footer class="entry-footer">
-			<?php hybrid_post_terms( array( 'taxonomy' => 'category', 'text' => esc_html__( 'Posted in %s', 'hybrid-base' ) ) ); ?>
-			<?php hybrid_post_terms( array( 'taxonomy' => 'post_tag', 'text' => esc_html__( 'Tagged %s', 'hybrid-base' ), 'before' => '<br />' ) ); ?>
+			<?php hybrid_post_terms( array( 'taxonomy' => 'category', 'text' => esc_html__( 'Posted in %s', 'hybrid-sample' ) ) ); ?>
+			<?php hybrid_post_terms( array( 'taxonomy' => 'post_tag', 'text' => esc_html__( 'Tagged %s', 'hybrid-sample' ), 'before' => '<br />' ) ); ?>
 		</footer><!-- .entry-footer -->
 
 	<?php else : // If not viewing a single post. ?>

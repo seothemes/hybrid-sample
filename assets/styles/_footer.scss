@@ -2,11 +2,46 @@
  * Footer
  * --------------------------------------------------------------------------- */
 
-#footer {}
-
-#footer .copyright {}
-
-#footer .credit {}
-
-#footer a {}
-#footer a:hover {}
+.site-footer {
+    background-color: $color-white;
+    @include scale(padding-top,padding-bottom);
+    .copyright {}
+    .credit {
+        margin: 0;
+        text-align: center;
+        font-size: 1.6rem;
+    }
+    a {}
+    a:hover {}
+    .sidebar {
+        padding: calc(4rem - 5%) 0 0;
+        margin: 0 0 $site-margin;
+        width: 100%;
+        border-bottom: $site-border;
+        @include breakpoint(sm) {
+            padding: 0 0 2rem;
+        }
+        @include breakpoint(md) {
+            width: 100%;
+            padding: 0;
+        }
+        .wrap {
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .widget {
+            margin: 0 0 4rem;
+            padding: 0;
+            background: none;
+            width: 100%;
+            @include breakpoint(md) {
+                flex-basis: 0;
+                flex-grow: 1;
+                margin: 0 0 6rem 6rem;
+            }
+            &:first-of-type {
+                margin-left: 0;
+            }
+        }
+    }
+}

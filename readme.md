@@ -1,4 +1,4 @@
-# Hybrid Base
+# Hybrid Sample
 
 Please fork me.  
 

@@ -2,13 +2,155 @@
  * Header
  * --------------------------------------------------------------------------- */
 
-#header {}
+.site-header {
+    background-color: $color-white;
+    .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        @include breakpoint(md) {
+            flex-wrap: nowrap;
+        }
+    }
+}
 
-#branding {}
+.site-branding {
+    padding: 1rem 0;
+    @include breakpoint(md) {
+        padding: 1em 0;
+    }
+    @include breakpoint(xl) {
+        padding: 2em 0;
+    }
+}
 
-#site-title {}
+.site-title {
+    margin: 0;
+    font-size: 2rem;
+    font-weight: $bold;
+    line-height: 1;
+    display: block;
+    @include breakpoint(md) {
+        font-size: 2.6rem;
+    }
+    a {
+        text-decoration: none;
+        color: $color-heading;
+        &:hover {
+            color: $color-accent;
+        }
+    }
+}
 
-#site-title a {}
-#site-title a:hover {}
+.site-description {
+    margin: 0;
+    line-height: 1.1;
+    font-size: 1.4rem;
+    @include breakpoint(md) {
+        font-size: 1.6rem;
+    }
+}
 
-#site-description {}
+
+/* === Hero === */
+
+.hero {
+    background-color: $color-grey;
+    background-size: cover !important;
+    background-position: center !important;
+    color: $color-white;
+    padding: 12rem 0;
+    text-align: center;
+    position: relative;
+    @include clearfix;
+    @include breakpoint(sm) {
+        padding: 14rem 0;
+    }
+    @include breakpoint(md) {
+        padding: 16rem 0;
+        text-align: left;
+    }
+    @include breakpoint(lg) {
+        padding: 18rem 0;
+        text-align: left;
+    }
+    @include breakpoint(xl) {
+        padding: 20rem 0;
+        text-align: left;
+    }
+    &:before {
+        content: " ";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 100%;
+        background-color: $color-dark;
+        z-index: 1;
+        opacity: 0.82;
+    }
+    .wrap {
+        position: relative;
+        z-index: 1;
+        text-align: center;
+        @include breakpoint(md) {
+            flex-wrap: wrap;
+            max-width: map-get($breakpoints, sm);
+        }
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        margin-bottom: 0.382em;
+        color: $color-white;
+        width: 100%;
+    }
+    button {
+        background-color: $color-accent;
+        &:hover {
+            background-color: $color-white;
+            color: $color-body;
+        }
+    }
+}
+
+
+/* === Custom Header === */
+
+.wp-custom-header {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 0;
+    overflow: hidden;
+    img,
+    video,
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin: auto;
+        width: auto;
+        height: auto;
+        min-height: 100%;
+        min-width: 100%;
+        max-width: 100%;
+        max-height: none;
+        object-fit: cover;
+    }
+    iframe {
+        left: -25%;
+        right: -25%;
+        height: 150%;
+        width: 150%;
+    }
+}

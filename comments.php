@@ -1,6 +1,6 @@
 <?php
 // If a post password is required or no comments are given and comments/pings are closed, return.
-if ( post_password_required() || ( !have_comments() && !comments_open() && !pings_open() ) )
+if ( is_singular( 'page' ) || post_password_required() || ( ! have_comments() && ! comments_open() && ! pings_open() ) )
 	return;
 ?>
 
@@ -8,16 +8,18 @@ if ( post_password_required() || ( !have_comments() && !comments_open() && !ping
 
 	<?php if ( have_comments() ) : // Check if there are any comments. ?>
 
-		<div id="comments">
+		<div id="comments" class="comments">
 
 			<h3 id="comments-number"><?php comments_number(); ?></h3>
 
 			<ol class="comment-list">
 				<?php wp_list_comments(
 					array(
-						'style'        => 'ol',
+						'style'        => 'ul',
 						'callback'     => 'hybrid_comments_callback',
-						'end-callback' => 'hybrid_comments_end_callback'
+						'end-callback' => 'hybrid_comments_end_callback',
+						'avatar_size'  => 32,
+						'type'		   => 'comment',
 					)
 				); ?>
 			</ol><!-- .comment-list -->

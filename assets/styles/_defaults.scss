@@ -1,4 +1,5 @@
-/*! HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+/* HTML5 Boilerplate v5.3.0 | MIT License | https://html5boilerplate.com/ */
+
 
 /*
  * What follows is the result of much research on cross-browser styling.
@@ -6,15 +7,18 @@
  * Kroc Camen, and the H5BP dev community and team.
  */
 
+
 /* ==========================================================================
    Base styles: opinionated defaults
    ========================================================================== */
 
-html {
-    color: #222;
-    font-size: 1em;
-    line-height: 1.4;
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
 }
+
 
 /*
  * Remove text-shadow in selection highlight:
@@ -34,6 +38,7 @@ html {
     text-shadow: none;
 }
 
+
 /*
  * A better looking default horizontal rule
  */
@@ -42,10 +47,12 @@ hr {
     display: block;
     height: 1px;
     border: 0;
-    border-top: 1px solid #ccc;
-    margin: 1em 0;
-    padding: 0;
+    border-bottom: 1px solid #ccc;
+    margin: 0 0 2em;
+    padding: 1em 0 0;
+    clear: both;
 }
+
 
 /*
  * Remove the gap between audio, canvas, iframes,
@@ -62,6 +69,7 @@ video {
     vertical-align: middle;
 }
 
+
 /*
  * Remove default fieldset styles.
  */
@@ -72,6 +80,7 @@ fieldset {
     padding: 0;
 }
 
+
 /*
  * Allow only vertical resizing of textareas.
  */
@@ -79,6 +88,7 @@ fieldset {
 textarea {
     resize: vertical;
 }
+
 
 /* ==========================================================================
    Browser Upgrade Prompt
@@ -91,48 +101,109 @@ textarea {
     padding: 0.2em 0;
 }
 
+
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+
 
 /**
  * Defaults
  * --------------------------------------------------------------------------- */
 
+html {
+    font-size: 62.5%; // 10px browser default.
+    line-height: 1.618;
+    overflow-x: hidden;
+}
+
+
 /* === Body === */
 
 body {
+    font-family: $font-family;
+    color: $color-body;
+    background-color: $color-border;
+    font-size: 1.8rem;
+    font-weight: $normal;
+    -webkit-font-smoothing: antialiased;
+    -moz-font-smoothing: grayscale;
+    overflow-x: hidden;
+    @include breakpoint(sm) {
+        font-size: 2rem;
+    }
 }
+
+p {
+    margin: 0 0 1em;
+}
+
 
 /* === Links === */
 
 a {
-	word-wrap: break-word;
+    color: $color-accent;
+    word-wrap: break-word;
+    &:hover {
+        color: $color-body;
+    }
 }
 
-a:hover {}
 
 /* === Headers === */
 
-h1 {}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: $bolder;
+    color: $color-heading;
+    line-height: 1.236;
+    margin: 0 0 0.618em;
+    @include breakpoint(sm) {
+        margin-bottom: 1em;
+    }
+}
 
-h2 {}
+h1 {
+    font-size: 2em;
+}
 
-h3 {}
+h2 {
+    font-size: 1.6em;
+}
 
-h4 {}
+h3 {
+    font-size: 1.4em;
+}
 
-h5 {}
+h4 {
+    font-size: 1.2em;
+}
 
-h6 {}
+h5 {
+    font-size: 1.1em;
+}
+
+h6 {
+    font-size: 1em;
+}
+
 
 /* === Blockquotes, quotes, and cites === */
 
-blockquote {}
+blockquote {
+    border-left: $site-border;
+    margin: 1em 0;
+    padding: 0 1em;
+}
 
 blockquote blockquote {}
 
 blockquote cite {}
+
 
 /* === Acronyms and abbreviations === */
 
@@ -140,27 +211,49 @@ acronym {}
 
 abbr {}
 
+
 /* === Code and Preformatted text === */
 
-code {}
+code {
+    background-color: $color-light;
+    display: inline-block;
+    border-radius: $site-radius;
+}
 
-pre {}
+pre {
+    padding: 1em;
+    background-color: $color-light;
+    display: block;
+    width: 100%;
+    border-radius: $site-radius;
+}
 
 pre code {}
+
 
 /* === <address> tag === */
 
 address {}
 
+
 /* === Lists === */
 
-ul {}
+ul {
+    padding: 0
+}
 
 ul li {}
 
-ol {}
+ol {
+    padding: 0
+}
 
 ol li {}
+
+li {
+    list-style-type: none;
+    margin-bottom: 1em;
+}
 
 dl {}
 
@@ -168,9 +261,16 @@ dt {}
 
 dd {}
 
+
 /* === Tables === */
 
-table {}
+table {
+    border: $site-border;
+    border-collapse: collapse;
+    text-align: left;
+    font-size: 1.6rem;
+    margin-bottom: 1.618em;
+}
 
 caption {}
 
@@ -182,13 +282,18 @@ tbody {}
 
 tr {}
 
-th {}
+th,
+td {
+    padding: 1em;
+    border-top: $site-border;
+    border-right: $site-border;
+}
 
-td {}
 
 /* wp-calendar <table> */
 
 #wp-calendar {}
+
 
 /* === Embeds === */
 
@@ -200,46 +305,57 @@ iframe {}
 
 video {}
 
-/* === Forms === */
 
-form {}
+/* === Accessibility === */
 
-fieldset {}
+.screen-reader-shortcut,
+.screen-reader-text,
+.screen-reader-text span {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    overflow: hidden;
+    position: absolute !important;
+    width: 1px;
+    word-wrap: normal !important;
+}
 
-fieldset legend {}
+.screen-reader-text:focus,
+.screen-reader-shortcut:focus {
+    background: #fff;
+    box-shadow: 0 0 2px 2px rgba(0, 0, 0, .6);
+    clip: auto !important;
+    color: #333;
+    display: block;
+    font-size: 1em;
+    font-weight: $bold;
+    height: auto;
+    padding: 15px 23px 14px;
+    text-decoration: none;
+    width: auto;
+    z-index: 100000;
+    /* Above WP toolbar. */
+}
 
-label {}
+.more-link {
+    position: relative;
+}
 
-input {}
+.skip-link {
+    margin: 0;
+}
 
-/* Not all types, but these are more common for themes. */
-input[type="button"] {}
-input[type="checkbox"] {}
-input[type="email"] {}
-input[type="password"] {}
-input[type="radio"] {}
-input[type="reset"] {}
-input[type="search"] {}
-input[type="submit"] {}
-input[type="text"] {}
-input[type="url"] {}
+.skip-link li {
+    height: 0;
+    list-style: none;
+    width: 0;
+}
 
-textarea {}
 
-select {}
+/* Display outline on focus */
 
-select optgroup {}
+:focus {
+    color: #333;
+    outline: #ccc solid 1px;
+}
 
-select option {}
-
-button {}
-
-/* === Alignement (WP classes) === */
-
-.alignleft {}
-
-.alignright {}
-
-.aligncenter {}
-
-.alignnone {}

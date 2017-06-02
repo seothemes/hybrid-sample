@@ -2,50 +2,298 @@
  * Menus
  * --------------------------------------------------------------------------- */
 
-.menu-toggle {}
+.menu-toggle {
+    padding: 2.5rem 0;
+    cursor: pointer;
+    background-color: transparent;
+    display: block;
+    position: relative;
+    line-height: 1;
+    color: $color-body;
+    &:hover {
+        background: none;
+        outline: none;
+        box-shadow: none;
+    }
+    &:focus {
+        outline: $site-border;
+        background: none;
+    }
+    @include breakpoint(md) {
+        display: none;
+    }
+    span {
+        display: inline-block;
+        position: relative;
+        height: 2.5px;
+        background: $color-body;
+        transition: background 0s 0.25s;
+        width: 2.5rem;
+        float: right;
+        margin-left: 0.236em;
+        margin-top: 7px;
+        border-radius: $site-radius;
+        &::before,
+        &::after {
+            position: absolute;
+            display: block;
+            left: 0;
+            width: 100%;
+            height: 2.5px;
+            background-color: $color-body;
+            border-radius: $site-radius;
+            content: " ";
+        }
+        &::before {
+            top: -7px;
+            transition: top 0.25s 0.25s, transform 0.25s 0s;
+        }
+        &::after {
+            bottom: -7px;
+            transition: bottom 0.25s 0.25s, transform 0.25s 0s;
+        }
+    }
+    &.activated span {
+        background: none;
+        &::before {
+            top: 0;
+            transform: rotate(45deg);
+            transition: top 0.25s 0s, transform 0.25s 0.25s;
+        }
+        &::after {
+            bottom: 0;
+            transform: rotate(-45deg);
+            transition: bottom 0.25s 0s, transform 0.25s 0.25s;
+        }
+    }
+}
+
+.sub-menu-toggle {
+    position: absolute;
+    right: 0;
+    background: none;
+    color: $color-body;
+    padding: 1em;
+    margin: 0 -1em;
+    z-index: 1;
+    border: none;
+    font-size: 1em;
+    @include breakpoint(md) {
+        display: none;
+    }
+    &:hover,
+    &:focus {
+        background: none;
+    }
+    &:before {
+        content: "";
+        display: block;
+        margin: 0.2rem 0 -0.2rem;
+        border: 0.4rem solid transparent;
+        border-top-color: $color-body;
+    }
+    &.activated {
+        &:before {
+            transform: rotate(180deg);
+            margin: -0.2rem 0 0.2rem;
+        }
+    }
+}
+
+.menu {
+    font-weight: $bolder;
+    font-size: 1.6rem;
+    ul {
+        display: flex;
+        flex-wrap: wrap;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        @include breakpoint(md) {
+            flex-wrap: nowrap;
+            display: flex;
+        }
+        ul {
+            display: none;
+            font-size: 1.4rem;
+            @include clearfix;
+            @include breakpoint(md) {
+                background-color: $color-white;
+                border: $site-border;
+                position: absolute;
+                padding-top: 0;
+                width: 18rem;
+                top: 100%;
+            }
+            li {
+                clear: both;
+            }
+            ul {
+                left: 100%;
+                top: calc(100% - 1px);
+            }
+        }
+    }
+    li {
+        width: 100%;
+        position: relative;
+        margin-bottom: 0;
+        clear: both;
+        list-style-type: none;
+        @include breakpoint(md) {
+            width: auto;
+            clear: none;
+        }
+        &.right {
+            margin-left: auto;
+            a {
+                @include breakpoint(md) {
+                    padding-right: 0;
+                }
+            }
+        }
+        li {
+            a {
+                padding-left: 1em;
+                @include breakpoint(md) {
+                    padding: 1em;
+                }
+            }
+            &:first-of-type {
+                a {
+                    margin-top: 0;
+                }
+            }
+            li {
+                a {
+                    padding-left: 2em;
+                    @include breakpoint(md) {
+                        padding: 1em;
+                    }
+                }
+                li {
+                    a {
+                        padding-left: 3em;
+                        @include breakpoint(md) {
+                            padding: 1em;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    a {
+        display: block;
+        color: $color-body;
+        text-decoration: none;
+        padding: 0.5em 0;
+        float: left;
+        @include breakpoint(md) {
+            padding: 1em;
+            width: 100%;
+        }
+        @include breakpoint(xl) {
+            padding: 1.5em 1em;
+            width: 100%;
+        }
+        &:hover {
+            color: $color-accent;
+        }
+    }
+}
+
 
 /* ====== Primary Menu ====== */
 
-#menu-primary {}
+.menu-primary {
+    width: 100vw;
+    margin: 0 -5vw;
+    padding: 0 5vw;
+    display: none;
+    border-top: $site-border;
+    @include breakpoint(md) {
+        width: auto;
+        margin: 0;
+        padding: 0;
+        border: none;
+        position: relative;
+        z-index: 10;
+        display: block;
+    }
+    > ul {
+        > li:last-of-type {
+            > a {
+                @include breakpoint(md) {
+                    padding-right: 0;
+                }
+            }
+        }
+    }
+    .menu-items {
+        padding: 1em 0;
+        @include breakpoint(md) {
+            padding: 0;
+        }
+    }
+    ul {}
+    ul ul {}
+    li {}
+    li.current-menu-item {}
+    li a {}
+    li a:hover {}
+}
 
-#menu-primary .wrap {}
-
-#menu-primary ul {}
-
-#menu-primary ul ul {}
-
-#menu-primary li {}
-#menu-primary li.current-menu-item {}
-
-#menu-primary li a {}
-#menu-primary li a:hover {}
 
 /* ====== Secondary Menu ====== */
 
-#menu-secondary {}
+.menu-secondary {
+    background-color: $color-white;
+    display: none;
+    @include breakpoint(md) {
+        border-top: $site-border;
+        position: relative;
+        display: block;
+        z-index: 9;
+    }
+    .wrap {
+        > ul {
+            @include breakpoint(md) {
+                width: 100%;
+            }
+            > li:first-of-type {
+                > a {
+                    @include breakpoint(md) {
+                        padding-left: 0;
+                    }
+                }
+            }
+        }
+    }
+    ul {}
+    ul ul {}
+    li {}
+    li.current-menu-item {}
+    li a {}
+    li a:hover {}
+}
 
-#menu-secondary .wrap {}
 
-#menu-secondary ul {}
+/* ====== Footer Menu ====== */
 
-#menu-secondary ul ul {}
-
-#menu-secondary li {}
-#menu-secondary li.current-menu-item {}
-
-#menu-secondary li a {}
-#menu-secondary li a:hover {}
-
-/* ====== Subsidiary Menu ====== */
-
-#menu-subsidiary {}
-
-#menu-subsidiary .wrap {}
-
-#menu-subsidiary ul {}
-
-#menu-subsidiary li {}
-#menu-subsidiary li.current-menu-item {}
-
-#menu-subsidiary li a {}
-#menu-subsidiary li a:hover {}
+.menu-footer {
+    .wrap {}
+    ul {
+        margin-bottom: 1em;
+        justify-content: center;
+        @include breakpoint(md) {
+            margin-bottom: 0;
+        }
+    }
+    li {
+        width: auto;
+        &.current-menu-item {}
+        a {
+            margin: 0 1em;
+        }
+    }
+}

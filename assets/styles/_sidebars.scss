@@ -4,24 +4,69 @@
 
 /* ====== General ====== */
 
-.sidebar {}
+.sidebar {
+	font-size: 1.6rem;
+	ul {
+		&:last-of-type {
+			margin-bottom: 0;
+		}
+	}
+}
 
-.widget {}
+.widget {
+	background-color: $color-white;
+	padding: 3rem;
+	@include scale(margin-top);
+	@include breakpoint(xs) {
+		padding: 4rem;
+	}
+	&:first-of-type {
+		@include breakpoint(lg) {
+			margin-top: 0;
+		}
+	}
+}
 
-.widget-title {}
+.widget-title {
+	font-size: 2rem;
+}
 
 /* ====== Specific ====== */
 
-#sidebar-primary {}
+.sidebar-primary {
+	.widget {
+		&:first-of-type {
+			background-color: $color-body;
+			color: $color-white;
+			h3,
+			.widget-title {
+				color: $color-white;
+				margin-bottom: 0.5em;
+			}
+			input {
+				width: 100%;
+			}
+			button,
+			input[type="button"],
+			input[type="submit"] {
+				background-color: $color-accent;
+				width: 100%;
+				max-width: map-get($breakpoints, xs );
+				&:hover {
+					color: $color-body;
+					background-color: $color-white;
+				}
+			}
+		}
+	}
+}
 
-#sidebar-secondary {}
+.sidebar-secondary {}
 
-#sidebar-subsidiary {}
+.sidebar-header {}
 
-#sidebar-header {}
+.sidebar-before-content {}
 
-#sidebar-before-content {}
+.sidebar-after-content {}
 
-#sidebar-after-content {}
-
-#sidebar-after-singular {}
+.sidebar-after-singular {}

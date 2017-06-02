@@ -7,7 +7,7 @@
 				'theme_location'  => 'secondary',
 				'container'       => '',
 				'menu_id'         => 'menu-secondary-items',
-				'menu_class'      => 'menu-items',
+				'menu_class'      => 'menu-items js-superfish',
 				'fallback_cb'     => '',
 				'items_wrap'      => '<div class="wrap"><ul id="%s" class="%s">%s</ul></div>'
 			)

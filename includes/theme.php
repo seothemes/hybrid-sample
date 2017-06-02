@@ -1,65 +1,63 @@
 <?php
 /**
- * This file contains all of the theme specific Hybrid Core functionality.
+ * Handles the Hybrid Core functionality for the theme.
  *
- * @package    HybridBase
- * @subpackage Theme
- * @version    1.0.0
- * @author     Justin Tadlock <justin@justintadlock.com>
- * @copyright  Copyright (c) 2013 - 2015, Justin Tadlock
- * @link       http://themehybrid.com/themes/hybrid-base
- * @license    http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
+ * @package    HybridSample
+ * @author     SEO Themes <seothemeswp@gmail.com>
+ * @copyright  Copyright (c) '93 - Infinity, SEO Themes
+ * @link       http://seothemes.net/themes/hybrid-sample
+ * @license    GPL 2.0
  */
-
-// Register custom image sizes.
-add_action( 'init', 'hybrid_base_register_image_sizes', 5 );
 
 // Register custom menus.
-add_action( 'init', 'hybrid_base_register_menus', 5 );
+add_action( 'init', 'hybrid_sample_register_menus', 5 );
 
 // Register custom layouts.
-add_action( 'hybrid_register_layouts', 'hybrid_base_register_layouts' );
+add_action( 'hybrid_register_layouts', 'hybrid_sample_register_layouts' );
 
 // Register sidebars.
-add_action( 'widgets_init', 'hybrid_base_register_sidebars', 5 );
+add_action( 'widgets_init', 'hybrid_sample_register_sidebars', 5 );
 
 // Add custom scripts.
-add_action( 'wp_enqueue_scripts', 'hybrid_base_enqueue_scripts', 5 );
+add_action( 'wp_enqueue_scripts', 'hybrid_sample_enqueue_scripts', 5 );
 
 // Add custom styles.
-add_action( 'wp_enqueue_scripts', 'hybrid_base_enqueue_styles',  5 );
+add_action( 'wp_enqueue_scripts', 'hybrid_sample_enqueue_styles',  5 );
 
 // HTML tag attributes.
-add_filter( 'hybrid_attr_html', 'hybrid_base_attr_html', 5 );
+add_filter( 'hybrid_attr_html', 'hybrid_sample_attr_html', 5 );
 
 // Remove excessive body classes.
-add_filter( 'hybrid_attr_body', 'hybrid_base_body_class_filter' );
+add_filter( 'hybrid_attr_body', 'hybrid_sample_body_class_filter' );
 
 // Remove excessive post classes.
-add_filter( 'hybrid_attr_post', 'hybrid_base_post_class_filter' );
+add_filter( 'hybrid_attr_post', 'hybrid_sample_post_class_filter' );
+
+// Hero attributes.
+add_filter( 'hybrid_attr_hero', 'hybrid_sample_attr_hero', 5 );
 
 // Remove excessive comment attributes.
-add_filter( 'hybrid_attr_comment', 'hybrid_base_comment_class_filter' );
+add_filter( 'hybrid_attr_comment', 'hybrid_sample_comment_class_filter' );
 
 // Modify site title output.
-add_filter( 'hybrid_attr_site-title', 'hybrid_base_attr_site_title' );
+add_filter( 'hybrid_site_title', 'hybrid_sample_site_title' );
+
+// Modify site title output.
+add_filter( 'hybrid_attr_site-title', 'hybrid_sample_attr_site_title' );
 
 // Modify site description output.
-add_filter( 'hybrid_attr_site-description', 'hybrid_base_attr_site_description' );
+add_filter( 'hybrid_site_description', 'hybrid_sample_site_description' );
 
+// Modify site description output.
+add_filter( 'hybrid_attr_site-description', 'hybrid_sample_attr_site_description' );
 
-/**
- * Registers custom image sizes for the theme.
- *
- * @since  1.0.0
- * @access public
- * @return void
- */
-function hybrid_base_register_image_sizes() {
+// Filter tag cloud font size.
+add_filter( 'widget_tag_cloud_args', 'hybrid_sample_tag_cloud_filter', 90 );
 
-	// Sets the 'post-thumbnail' size.
-	//set_post_thumbnail_size( 150, 150, true );
-}
+// Filter the read more link.
+add_filter( 'excerpt_more', 'hybrid_sample_read_more' );
+add_filter( 'the_content_more_link', 'hybrid_sample_read_more' );
+add_filter( 'get_the_content_more_link', 'hybrid_sample_read_more' );
 
 /**
  * Registers nav menu locations.
@@ -68,11 +66,11 @@ function hybrid_base_register_image_sizes() {
  * @access public
  * @return void
  */
-function hybrid_base_register_menus() {
+function hybrid_sample_register_menus() {
 
-	register_nav_menu( 'primary',    esc_html_x( 'Primary',    'nav menu location', 'hybrid-base' ) );
-
-	register_nav_menu( 'secondary',  esc_html_x( 'Secondary',  'nav menu location', 'hybrid-base' ) );
+	register_nav_menu( 'primary',    esc_html_x( 'Primary',    'nav menu location', 'hybrid-sample' ) );
+	register_nav_menu( 'secondary',  esc_html_x( 'Secondary',  'nav menu location', 'hybrid-sample' ) );
+	register_nav_menu( 'footer',  esc_html_x( 'Footer',  'nav menu location', 'hybrid-sample' ) );
 }
 
 /**
@@ -82,22 +80,20 @@ function hybrid_base_register_menus() {
  * @access public
  * @return void
  */
-function hybrid_base_register_layouts() {
+function hybrid_sample_register_layouts() {
 
 	hybrid_register_layout( 'full-width', array(
 		'label' => esc_html__( 'Full Width',
-		'hybrid-base' ), 'image' => '%s/assets/images/layouts/full-width.png',
+		'hybrid-sample' ), 'image' => '%s/assets/images/layouts/full-width.png',
 	) );
-
 	hybrid_register_layout( 'sidebar-left', array(
-		'label' => esc_html__( 'Sidebar Left', 'hybrid-base' ),
+		'label' => esc_html__( 'Sidebar Left', 'hybrid-sample' ),
 		'image' => '%s/assets/images/layouts/sidebar-left.png',
 	) );
-
 	hybrid_register_layout( 'sidebar-right', array(
-		'label' => esc_html__( 'Sidebar Right', 'hybrid-base' ),
+		'label' => esc_html__( 'Sidebar Right', 'hybrid-sample' ),
 		'image' => '%s/assets/images/layouts/sidebar-right.png',
-	) );	
+	) );
 }
 
 /**
@@ -107,21 +103,31 @@ function hybrid_base_register_layouts() {
  * @access public
  * @return void
  */
-function hybrid_base_register_sidebars() {
+function hybrid_sample_register_sidebars() {
 
+	hybrid_register_sidebar(
+		array(
+			'id'          => 'hero',
+			'name'        => esc_html_x( 'Hero', 'sidebar', 'hybrid-sample' ),
+			'description' => esc_html__( 'The hero widget area.', 'hybrid-sample' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '<h1>',
+			'after_title'   => '</h1>',
+		)
+	);
 	hybrid_register_sidebar(
 		array(
 			'id'          => 'primary',
-			'name'        => esc_html_x( 'Primary', 'sidebar', 'hybrid-base' ),
-			'description' => esc_html__( 'Add sidebar description.', 'hybrid-base' )
+			'name'        => esc_html_x( 'Sidebar', 'sidebar', 'hybrid-sample' ),
+			'description' => esc_html__( 'The sidebar widget area.', 'hybrid-sample' )
 		)
 	);
-
 	hybrid_register_sidebar(
 		array(
-			'id'          => 'secondary',
-			'name'        => esc_html_x( 'Secondary', 'sidebar', 'hybrid-base' ),
-			'description' => esc_html__( 'Add sidebar description.', 'hybrid-base' )
+			'id'          => 'footer',
+			'name'        => esc_html_x( 'Footer', 'sidebar', 'hybrid-sample' ),
+			'description' => esc_html__( 'The footer widget area.', 'hybrid-sample' )
 		)
 	);
 }
@@ -133,10 +139,35 @@ function hybrid_base_register_sidebars() {
  * @access public
  * @return void
  */
-function hybrid_base_enqueue_scripts() {
+function hybrid_sample_enqueue_scripts() {
 
-	// Load Hybrid menu-toggle script.
-	wp_enqueue_script( 'hybrid-mobile-toggle' );
+	$version = '0.1.0';
+	$js_url  = get_stylesheet_directory_uri() . '/assets/scripts/';
+	$suffix  = ( defined( 'SCRIPT_DEBUG' ) && SCRIPT_DEBUG ) ? '' : '.min';
+	wp_enqueue_script( 'hybrid-sample-menu', $js_url . "menus{$suffix}.js", array( 'jquery' ), $version, true );
+	wp_localize_script(
+		'hybrid-sample-menu',
+		'hybrid_menu',
+		hybrid_sample_menu_settings()
+	);
+}
+
+/**
+ * Responsive menu settings.
+ */
+function hybrid_sample_menu_settings() {
+	$settings = array(
+		'mainMenu'          => __( 'Menu', 'hybrid-sample' ),
+		'subMenu'           => __( 'Submenu', 'hybrid-sample' ),
+		'menuClasses'       => array(
+			'combine' => array(
+				'.menu-primary',
+				'.menu-secondary',
+			),
+			'others'  => array(),
+		),
+	);
+	return $settings;
 }
 
 /**
@@ -146,15 +177,7 @@ function hybrid_base_enqueue_scripts() {
  * @access public
  * @return void
  */
-function hybrid_base_enqueue_styles() {
-
-	// Load one-five base style.
-	wp_enqueue_style( 'hybrid-one-five' );
-
-	// Load gallery style if 'cleaner-gallery' is active.
-	if ( current_theme_supports( 'cleaner-gallery' ) ) {
-		wp_enqueue_style( 'hybrid-gallery' );
-	}
+function hybrid_sample_enqueue_styles() {
 
 	// Load parent theme stylesheet if child theme is active.
 	if ( is_child_theme() ) {
@@ -163,6 +186,68 @@ function hybrid_base_enqueue_styles() {
 
 	// Load active theme stylesheet.
 	wp_enqueue_style( 'hybrid-style' );
+
+	// Google fonts.
+	wp_enqueue_style( 'google-fonts', '//fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700', array(), '' );
+
+}
+
+/**
+ * Helper wrap function.
+ *
+ * Simply echoes the `hybrid_get_wrap` helper function.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  string $args Provided args.
+ * @return void
+ */
+function hybrid_wrap( $args = '' ) {
+	echo wp_kses( hybrid_get_wrap( $args ), 'post' );
+}
+
+/**
+ * Helper get wrap function.
+ *
+ * Abstracted here to allow theme developers to easily
+ * change the wrapper div attributes. For example, bootstrap
+ * uses the `container` class instead of `wrap`.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  string $args Provided args.
+ * @return string Wrap markup.
+ */
+function hybrid_get_wrap( $args = '' ) {
+	if ( 'open' === $args ) {
+		return '<div class="wrap">';
+	} elseif ( 'close' === $args ) {
+		return '</div>';
+	}
+}
+
+/**
+ * Returns the linked site title wrapped in an `<b>` tag.
+ *
+ * @since  2.0.0
+ * @access public
+ * @return string
+ */
+function hybrid_sample_site_title() {
+	$title = get_bloginfo( 'name' );
+	return sprintf( '<b %s><a href="%s" rel="home">%s</a></b>', hybrid_get_attr( 'site-title' ), esc_url( home_url() ), $title );
+}
+
+/**
+ * Returns the site description wrapped in an `<p>` tag.
+ *
+ * @since  2.0.0
+ * @access public
+ * @return string
+ */
+function hybrid_sample_site_description() {
+	$desc = get_bloginfo( 'description' );
+	return sprintf( '<p %s>%s</p>', hybrid_get_attr( 'site-description' ), $desc );
 }
 
 /**
@@ -173,11 +258,22 @@ function hybrid_base_enqueue_styles() {
  * @param  array $attr Site title attributes.
  * @return array
  */
-function hybrid_base_attr_html( $attr ) {
-
+function hybrid_sample_attr_html( $attr ) {
 	$attr['class'] = 'no-js';
 	$attr['lang']  = get_locale();
+	return $attr;
+}
 
+/**
+ * Hero section attributes.
+ *
+ * @since  1.0.0
+ * @access public
+ * @param  array $attr Site title attributes.
+ * @return array
+ */
+function hybrid_sample_attr_hero( $attr ) {
+	$attr['class'] = 'hero';
 	return $attr;
 }
 
@@ -192,7 +288,7 @@ function hybrid_base_attr_html( $attr ) {
  * @param  array $attr Body attributes.
  * @return array
  */
-function hybrid_base_body_class_filter( $attr ) {
+function hybrid_sample_body_class_filter( $attr ) {
 
 	// Emulate hover effects on mobile devices.
 	$attr['ontouchstart'] = ' ';
@@ -216,7 +312,12 @@ function hybrid_base_body_class_filter( $attr ) {
 		$classes[] = 'blog';
 	}
 
-	// Single post or page.
+	// Single page.
+	if ( is_page() ) {
+		$classes[] = 'page';
+	}
+
+	// Single post.
 	if ( is_single() ) {
 		$classes[] = 'single';
 	}
@@ -276,6 +377,11 @@ function hybrid_base_body_class_filter( $attr ) {
 		$classes[] = 'custom-header';
 	}
 
+	// Customizer preview.
+	if ( is_customize_preview() ) {
+		$classes[] = 'customize-preview';
+	}
+
 	// Theme layouts.
 	if ( current_theme_supports( 'theme-layouts' ) ) {
 		$classes[] = sanitize_html_class( hybrid_get_theme_layout() );
@@ -306,13 +412,10 @@ function hybrid_base_body_class_filter( $attr ) {
  * @param  array $attr Site title attributes.
  * @return array
  */
-function hybrid_base_attr_site_title( $attr ) {
-
+function hybrid_sample_attr_site_title( $attr ) {
 	unset( $attr['id'] );
-
 	$attr['itemscope'] = 'itemscope';
 	$attr['itemtype']  = 'http://schema.org/Organization';
-
 	return $attr;
 }
 
@@ -324,10 +427,8 @@ function hybrid_base_attr_site_title( $attr ) {
  * @param  array $attr Site description attributes.
  * @return array
  */
-function hybrid_base_attr_site_description( $attr ) {
-
+function hybrid_sample_attr_site_description( $attr ) {
 	unset( $attr['id'] );
-
 	return $attr;
 }
 
@@ -342,8 +443,7 @@ function hybrid_base_attr_site_description( $attr ) {
  * @param  array $attr Post attributes.
  * @return array
  */
-function hybrid_base_post_class_filter( $attr ) {
-
+function hybrid_sample_post_class_filter( $attr ) {
 	unset( $attr['id'] );
 	$attr['class'] = 'entry';
 
@@ -353,7 +453,6 @@ function hybrid_base_post_class_filter( $attr ) {
 			$attr['class'] .= ' sticky';
 		}
 	}
-
 	return $attr;
 }
 
@@ -365,9 +464,41 @@ function hybrid_base_post_class_filter( $attr ) {
  * @param  array $attr Comment attributes.
  * @return array
  */
-function hybrid_base_comment_class_filter( $attr ) {
-
+function hybrid_sample_comment_class_filter( $attr ) {
 	$attr['class'] = 'comment';
-
 	return $attr;
+}
+
+/**
+ * Tag cloud font size.
+ *
+ * This function will let you set a new min/max font size
+ * for your tag cloud.
+ *
+ * @param array $args The tagcloud arguments.
+ */
+function hybrid_sample_tag_cloud_filter( $args = array() ) {
+	$args['smallest'] = 14;
+	$args['largest'] = 20;
+	$args['unit'] = 'px';
+	return $args;
+}
+
+/**
+ * Accessible read more link.
+ *
+ * The below code modifies the default read more link when
+ * using the WordPress More Tag to break a post on your site.
+ * Instead of seeing 'Read more', screen readers will instead
+ * see 'Read more about (entry title)'. This is a simple fix
+ * to improve the overall user experience and should be in core.
+ */
+function hybrid_sample_read_more() {
+	$trimtitle  = get_the_title();
+	$shorttitle = wp_trim_words(
+		$trimtitle,
+		$num_words = 10,
+		$more = '…'
+	);
+	return sprintf( '... <a class="more-link" rel="nofollow" href="%1$s">Read more<span class="screen-reader-text"> about %2$s</span></a>', esc_url( get_permalink() ), $shorttitle );
 }

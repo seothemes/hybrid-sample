@@ -6,20 +6,41 @@ fieldset {}
 
 fieldset legend {}
 
-label {}
+label {
+    display: block;
+}
 
 input {}
 
+textarea {}
+
+.search-submit {
+    margin-top: 1em;
+}
+
+
 /* Not all types, but these are more common for themes. */
+
 input[type="button"] {}
+
 input[type="checkbox"] {}
+
 input[type="email"] {}
+
 input[type="password"] {}
+
 input[type="radio"] {}
+
 input[type="reset"] {}
-input[type="search"] {}
+
+input[type="search"] {
+    -webkit-appearance: none;
+}
+
 input[type="submit"] {}
+
 input[type="text"] {}
+
 input[type="url"] {}
 
 textarea {}
@@ -31,3 +52,40 @@ select optgroup {}
 select option {}
 
 button {}
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 0.75em;
+    border: $site-border;
+    border-color: $color-input;
+    border-radius: $site-radius;
+    max-width: 100%;
+
+    &:focus {
+        border-color: $color-accent;
+        outline: none;
+    }
+}
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+    -webkit-appearance: none;
+    background: $color-body;
+    color: $color-white;
+    font-size: 1.6rem;
+    font-weight: $bold;
+    border: none;
+    padding: 1em 2em;
+    cursor: pointer;
+    transition: $site-transition;
+    border-radius: $site-radius;
+
+    &:hover,
+    &:focus {
+        background-color: $color-accent;
+    }   
+}

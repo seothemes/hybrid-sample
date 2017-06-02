@@ -1,4 +1,4 @@
-<?php if ( '1c' !== hybrid_get_theme_layout() ) : // If not a one-column layout. ?>
+<?php if ( is_customize_preview() || 'full-width' !== hybrid_get_theme_layout() ) : // If not a one-column layout. ?>
 
 	<aside <?php hybrid_attr( 'sidebar', 'primary' ); ?>>
 
@@ -11,9 +11,9 @@
 			<?php the_widget(
 				'WP_Widget_Text',
 				array(
-					'title'  => __( 'Example Widget', 'hybrid-base' ),
+					'title'  => __( 'Example Widget', 'hybrid-sample' ),
 					// Translators: The %s are placeholders for HTML, so the order can't be changed.
-					'text'   => sprintf( __( 'This is an example widget to show how the Primary sidebar looks by default. You can add custom widgets from the %swidgets screen%s in the admin.', 'hybrid-base' ), current_user_can( 'edit_theme_options' ) ? '<a href="' . admin_url( 'widgets.php' ) . '">' : '', current_user_can( 'edit_theme_options' ) ? '</a>' : '' ),
+					'text'   => sprintf( __( 'This is an example widget to show how the sidebar looks by default. You can add custom widgets from the %swidgets screen%s in the admin.', 'hybrid-sample' ), current_user_can( 'edit_theme_options' ) ? '<a href="' . admin_url( 'widgets.php' ) . '">' : '', current_user_can( 'edit_theme_options' ) ? '</a>' : '' ),
 					'filter' => true,
 				),
 				array(
@@ -26,6 +26,6 @@
 
 		<?php endif; // End widgets check. ?>
 
-	</aside><!-- #sidebar-primary -->
+	</aside><!-- #primary-sidebar -->
 
 <?php endif; // End layout check. ?>

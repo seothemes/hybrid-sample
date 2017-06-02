@@ -2,28 +2,212 @@
  * Layout
  * --------------------------------------------------------------------------- */
 
-#container {}
+.wrap {
+    width: 90%;
+    max-width: map-get($breakpoints, xl);
+    margin: 0 auto;
+}
 
-.full-width    #container {}
-.sidebar-left  #container {}
-.sidebar-right #container {}
+.site-inner {
+    padding: 5vw 0;
+    @include breakpoint(sm) {
+        padding: 4rem 0;
+    }
+    .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-start;
+        justify-content: space-between;
+    }
+}
 
-#header {}
+.content,
+.sidebar {
+    width: 100%;
+}
 
-#menu-primary {}
+.customize-preview.full-width,
+.customize-preview.layout-full-width {
+    .content {
+        width: 100%;
+    }
+    .sidebar-primary {
+        display: none;
+    }
+}
 
-#menu-secondary {}
+@include breakpoint(lg) {
+    .sidebar-left,
+    .customize-preview.layout-sidebar-left {
+        .site-inner {
+            .wrap {
+                flex-direction: row-reverse;
+            }
+        }
+        .content {
+            width: $site-content;
+        }
+        .sidebar-primary {
+            width: $site-sidebar;
+            display: block;
+        }
+    }
+    .sidebar-right,
+    .customize-preview.layout-sidebar-right {
+        .site-inner {
+            .wrap {
+                flex-direction: row;
+            }
+        }
+        .content {
+            width: $site-content;
+        }
+        .sidebar-primary {
+            width: $site-sidebar;
+            display: block;
+        }
+    }
+}
 
-#main {}
 
-#content {}
+/* ====== Gallery ====== */
 
-#sidebar-primary {}
+.gallery {
+    @include breakpoint(xs) {
+        display: flex;
+        flex-wrap: wrap;
+    }
+    a {
+        display: block;
+        min-height: 100%;
+    }
+    img {
+        height: auto;
+        width: 100%;
+        display: block;
+    }
+}
 
-#sidebar-secondary {}
+.gallery-caption {
+    display: block;
+}
 
-#menu-subsidiary {}
+.gallery-item {
+    float: left;
+    width: 100%;
+    margin: 0 0 5%;
+    text-align: center;
+    display: block;
+    @include breakpoint(xs) {
+        margin: 0 0 2.564102564102564% 2.564102564102564%;
+        width: 48.717948717948715%;
+        .gallery-columns-1 & {
+            width: 100%;
+            margin: 0 0 2.564102564102564%;
+        }
+        &:nth-of-type(odd) {
+            clear: left;
+            margin-left: 0;
+        }
+    }
+    @include breakpoint(sm) {
+        &:nth-of-type(odd) {
+            clear: none;
+            margin-left: 2.564102564102564%;
+        }
+    }
+}
 
-#sidebar-subsidiary {}
+/* ====== Column Classes ====== */
 
-#footer {}
+@include breakpoint(sm) {
+    .five-sixths,
+    .four-sixths,
+    .four-fifths,
+    .one-fifth,
+    .one-fourth,
+    .one-half,
+    .one-sixth,
+    .one-third,
+    .three-fourths,
+    .three-fifths,
+    .three-sixths,
+    .two-fourths,
+    .two-fifths,
+    .two-sixths,
+    .two-thirds {
+        float: left;
+        margin-left: 2.564102564102564%;
+    }
+    .col-2,
+    .one-half,
+    .three-sixths,
+    .two-fourths {
+        width: 48.717948717948715%;
+        .pricing-table & {
+            width: 50%;
+        }
+    }
+    .col-3,
+    .one-third,
+    .two-sixths {
+        width: 31.623931623931625%;
+        .pricing-table & {
+            width: 33.3333333333333333%;
+        }
+    }
+    .four-sixths,
+    .two-thirds {
+        width: 65.81196581196582%;
+    }
+    .col-4,
+    .one-fourth {
+        width: 23.076923076923077%;
+        .pricing-table & {
+            width: 25%;
+        }
+    }
+    .three-fourths {
+        width: 74.35897435897436%;
+    }
+    .col-5,
+    .one-fifth {
+        width: 17.9487179487179488%;
+        .pricing-table & {
+            width: 20%;
+        }
+    }
+    .two-fifths {
+        width: 38.4615384615384616%;
+    }
+    .three-fifths {
+        width: 58.9743589743589744%;
+    }
+    .four-fifths {
+        width: 79.4871794871794872%;
+    }
+    .col-6,
+    .one-sixth {
+        width: 14.52991452991453%;
+        .pricing-table & {
+            width: 16.66666666666667%;
+        }
+    }
+    .five-sixths {
+        width: 82.90598290598291%;
+    }
+    .col-1:nth-of-type(1n + 1),
+    .col-2:nth-of-type(2n + 1),
+    .col-3:nth-of-type(3n + 1),
+    .col-4:nth-of-type(4n + 1),
+    .col-5:nth-of-type(5n + 1),
+    .col-6:nth-of-type(6n + 1),
+    .col-7:nth-of-type(7n + 1),
+    .col-8:nth-of-type(8n + 1),
+    .col-9:nth-of-type(9n + 1),
+    .footer-widgets .widget-area:first-of-type,
+    .first {
+        clear: both;
+        margin-left: 0;
+    }
+}

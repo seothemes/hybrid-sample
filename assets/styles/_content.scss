@@ -4,16 +4,53 @@
 
 /* ====== BREADCRUMBS ====== */
 
-.breadcrumb-trail {}
+.breadcrumbs {
+	background-color: $color-white;
+	font-size: 1.6rem;
+	padding: 1em;
+	border-bottom: $site-border;
+	display: flex;
+	flex-wrap: wrap;
+	@include scale(padding-left,padding-right);
 
-.breadcrumb-trail .trail-begin {}
+	.trail-begin {}
 
-.breadcrumb-trail .trail-end {}
+	.trail-end {}
 
-.breadcrumb-trail .sep {}
+	.sep {}
 
-.breadcrumb-trail a {}
-.breadcrumb-trail a:hover {}
+	a {}
+	a:hover {}
+
+	ul {
+		display: flex;
+		flex-wrap: wrap;
+		list-style-type: none;
+		margin: 0;
+		padding: 0;
+
+		li {
+			margin-right: 0.2em;
+			margin-bottom: 0;
+
+			&:first-of-type {
+				margin-left: 0;
+			}
+
+			&:last-of-type {
+
+				&:after {
+					display: none;
+				}
+			}
+
+			&:after {
+				content: "/";
+				margin-left: 0.2em;
+			}
+		}
+	}
+}
 
 
 /* ====== Attachment Meta (on image attachment pages) ====== */
@@ -55,7 +92,11 @@
 
 /* === Single post navigation (between different posts) === */
 
-.loop-nav {}
+.loop-nav {
+	font-size: 1.6rem;
+	background-color: $color-white;
+	@include scale(padding,margin-top);
+}
 
 .loop-nav a {}
 .loop-nav a:hover {}
@@ -66,7 +107,24 @@
 
 /* === Archive-type pages === */
 
-.loop-pagination {}
+.archive-header {
+	background-color: $color-white;
+	@include scale(padding,margin-bottom);
+	p {
+		margin: 0.5em 0 0;
+		font-size: 1.6rem;
+	}
+}
+
+.archive-title {
+	margin: 0;
+	font-size: 2rem;
+}
+
+.pagination {
+	background-color: $color-white;
+	@include scale(padding, margin-top);
+}
 
 .loop-pagination .page-numbers {}
 
