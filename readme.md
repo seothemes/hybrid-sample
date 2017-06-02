@@ -1,6 +1,8 @@
 # Hybrid Sample Theme
 
-A search engine optimized, mobile-first sample theme based on the Hybrid Framework with a modern development workflow.
+A search engine optimized, mobile-first, flexbox-based starter theme with a modern development workflow.
+
+**Demo** - [https://demo.seothemes.net/hybrid-sample](https://demo.seothemes.net/hybrid-sample)
 
 
 ## Features
