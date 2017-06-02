@@ -15,9 +15,8 @@ add_action( 'customize_register', 'hybrid_sample_customize_register' );
 /**
  * Sets up the theme customizer sections, controls, and settings.
  *
- * @since  1.0.0
  * @access public
- * @param  object $wp_customize
+ * @param  object $wp_customize.
  * @return void
  */
 function hybrid_sample_customize_register( $wp_customize ) {
@@ -40,7 +39,6 @@ function hybrid_sample_customize_register( $wp_customize ) {
 /**
  * Loads theme customizer JavaScript.
  *
- * @since  1.0.0
  * @access public
  * @return void
  */

@@ -20,7 +20,6 @@ add_action( 'after_setup_theme', 'hybrid_sample_custom_background_setup', 15 );
 /**
  * Adds support for the WordPress 'custom-background' theme feature.
  *
- * @since  1.0.0
  * @access public
  * @return void
  */
@@ -45,7 +44,6 @@ function hybrid_sample_custom_background_setup() {
  * @link http://core.trac.wordpress.org/ticket/16919
  * @link http://core.trac.wordpress.org/ticket/21510
  *
- * @since  1.0.0
  * @access public
  * @return void
  */

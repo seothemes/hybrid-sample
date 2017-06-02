@@ -20,7 +20,6 @@ add_action( 'after_setup_theme', 'hybrid_sample_custom_header_setup', 15 );
 /**
  * Adds support for the WordPress 'custom-header' theme feature and registers custom headers.
  *
- * @since  1.0.0
  * @access public
  * @return void
  */
@@ -56,7 +55,6 @@ function hybrid_sample_custom_header_setup() {
 /**
  * Callback function for outputting the custom header CSS to `wp_head`.
  *
- * @since  1.0.0
  * @access public
  * @return void
  */

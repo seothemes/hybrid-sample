@@ -1,1 +1,2 @@
-<?php /* The grass is always greener. */ ?>
+<?php
+// Place any custom fonts in this directory.

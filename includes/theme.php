@@ -59,10 +59,12 @@ add_filter( 'excerpt_more', 'hybrid_sample_read_more' );
 add_filter( 'the_content_more_link', 'hybrid_sample_read_more' );
 add_filter( 'get_the_content_more_link', 'hybrid_sample_read_more' );
 
+// Force Gravity Forms to disable CSS output.
+add_filter( 'pre_option_rg_gforms_disable_css', '__return_true' );
+
 /**
  * Registers nav menu locations.
  *
- * @since  1.0.0
  * @access public
  * @return void
  */
@@ -76,7 +78,6 @@ function hybrid_sample_register_menus() {
 /**
  * Registers layouts.
  *
- * @since  1.0.0
  * @access public
  * @return void
  */
@@ -99,7 +100,6 @@ function hybrid_sample_register_layouts() {
 /**
  * Registers sidebars.
  *
- * @since  1.0.0
  * @access public
  * @return void
  */
@@ -135,7 +135,6 @@ function hybrid_sample_register_sidebars() {
 /**
  * Load scripts for the front end.
  *
- * @since  1.0.0
  * @access public
  * @return void
  */
@@ -173,7 +172,6 @@ function hybrid_sample_menu_settings() {
 /**
  * Load stylesheets for the front end.
  *
- * @since  1.0.0
  * @access public
  * @return void
  */
@@ -197,7 +195,6 @@ function hybrid_sample_enqueue_styles() {
  *
  * Simply echoes the `hybrid_get_wrap` helper function.
  *
- * @since  1.0.0
  * @access public
  * @param  string $args Provided args.
  * @return void
@@ -213,7 +210,6 @@ function hybrid_wrap( $args = '' ) {
  * change the wrapper div attributes. For example, bootstrap
  * uses the `container` class instead of `wrap`.
  *
- * @since  1.0.0
  * @access public
  * @param  string $args Provided args.
  * @return string Wrap markup.
@@ -229,7 +225,6 @@ function hybrid_get_wrap( $args = '' ) {
 /**
  * Returns the linked site title wrapped in an `<b>` tag.
  *
- * @since  2.0.0
  * @access public
  * @return string
  */
@@ -241,7 +236,6 @@ function hybrid_sample_site_title() {
 /**
  * Returns the site description wrapped in an `<p>` tag.
  *
- * @since  2.0.0
  * @access public
  * @return string
  */
@@ -253,7 +247,6 @@ function hybrid_sample_site_description() {
 /**
  * HTML tag attributes.
  *
- * @since  1.0.0
  * @access public
  * @param  array $attr Site title attributes.
  * @return array
@@ -267,7 +260,6 @@ function hybrid_sample_attr_html( $attr ) {
 /**
  * Hero section attributes.
  *
- * @since  1.0.0
  * @access public
  * @param  array $attr Site title attributes.
  * @return array
@@ -283,7 +275,6 @@ function hybrid_sample_attr_hero( $attr ) {
  * with the original body class functionality that existed prior
  * to WordPress core adopting this feature.
  *
- * @since  1.0.0
  * @access public
  * @param  array $attr Body attributes.
  * @return array
@@ -407,7 +398,6 @@ function hybrid_sample_body_class_filter( $attr ) {
 /**
  * Site title attributes.
  *
- * @since  1.0.0
  * @access public
  * @param  array $attr Site title attributes.
  * @return array
@@ -422,7 +412,6 @@ function hybrid_sample_attr_site_title( $attr ) {
 /**
  * Site description attributes.
  *
- * @since  1.0.0
  * @access public
  * @param  array $attr Site description attributes.
  * @return array
@@ -438,7 +427,6 @@ function hybrid_sample_attr_site_description( $attr ) {
  * with the original post class functionality that existed prior
  * to WordPress core adopting this feature.
  *
- * @since  1.0.0
  * @access public
  * @param  array $attr Post attributes.
  * @return array
@@ -459,7 +447,6 @@ function hybrid_sample_post_class_filter( $attr ) {
 /**
  * Adds custom classes to WordPress comments.
  *
- * @since  1.0.0
  * @access public
  * @param  array $attr Comment attributes.
  * @return array

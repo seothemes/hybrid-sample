@@ -26,6 +26,7 @@ $hybrid_sample_dir = trailingslashit( get_template_directory() );
 
 // Load the Hybrid Core framework and theme files.
 require_once( $hybrid_sample_dir . 'library/hybrid.php' );
+require_once( $hybrid_sample_dir . 'includes/class-plugin-activation.php' );
 require_once( $hybrid_sample_dir . 'includes/custom-background.php' );
 require_once( $hybrid_sample_dir . 'includes/custom-header.php' );
 require_once( $hybrid_sample_dir . 'includes/custom-colors.php' );
@@ -42,7 +43,6 @@ add_action( 'after_setup_theme', 'hybrid_sample_theme_setup', 5 );
  * Theme setup function.  This function adds support for theme features and defines the default theme
  * actions and filters.
  *
- * @since  1.0.0
  * @access public
  * @return void
  */
